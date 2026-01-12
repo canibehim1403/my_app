@@ -1,0 +1,167 @@
+name: my_app
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.3
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  cached_network_image: ^3.3.0
+  http: ^0.13.6
+  flutter_screenutil: ^5.9.0
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.13.1
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "Images/apd_image/apd_app_logo.jpg"
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^6.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - Images/other/image_cat.jpg
+    - Images/other/image_cat1.jpg
+    - Images/other/image_cat2.jpg
+    - Images/other/image_cat3.jpg
+    - Images/other/image_cat4.jpg
+    - Images/other/image_cat5.jpg
+    - Images/apd_image/image_loginpage.jpg
+    - Images/apd_image/image_signuppage.jpg
+    - Images/apd_image/image_otppage.jpg
+    - Images/apd_image/image_login.jpg
+    - Images/apd_image/vector.jpg
+    - Images/apd_image/successful_logo.jpg
+    - Images/apd_image/background_otp_forgotpw.jpg
+    - Images/apd_image/christmas_theme.jpg
+    - Images/apd_image/accounts_image.jpg
+    - Images/apd_image/cards_image.jpg
+    - Images/apd_image/favorites_image.jpg
+    - Images/apd_image/fd_image.jpg
+    - Images/apd_image/payments_image.jpg
+    - Images/apd_image/scanqr_image.jpg
+    - Images/apd_image/topup_image.jpg
+    - Images/apd_image/transfer_image.jpg
+    - Images/apd_image/navigation_bar.jpg
+    - Images/apd_image/edit_theme.jpg
+    - Images/apd_image/chat_bubble_outline.jpg
+    - Images/apd_image/tap_arrow.jpg
+    - Images/menu_icon/background_icon.jpg
+    - Images/menu_icon/account_icon.jpg
+    - Images/menu_icon/card_icon.jpg
+    - Images/menu_icon/fd_icon.jpg
+    - Images/menu_icon/loan_icon.jpg
+    - Images/menu_icon/payment_icon.jpg
+    - Images/menu_icon/scanqr_icon.jpg
+    - Images/menu_icon/topup_icon.jpg
+    - Images/menu_icon/transfer_icon.jpg
+    - Images/menu_icon/arrow_classic.jpg
+    - Images/menu_icon/menu_nav.jpg
+    - Images/menu_icon/chat_bubble_outline_blue.jpg
+    - Images/menu_icon/bakong_icon.jpg
+    - Images/menu_icon/advertise_banner.jpg
+    - Images/menu_icon/account_background.jpg
+    - Images/menu_icon/logo_khmer.jpg
+    - Images/menu_icon/current_account_icon.jpg
+    - Images/menu_icon/saving_account_icon.jpg
+    - Images/menu_icon/three_dot.jpg
+    - Images/menu_icon/home_icon.jpg
+    - Images/menu_icon/ir_icon.jpg
+    - Images/menu_icon/other_transfer_icon.jpg
+    - Images/menu_icon/back_icon.jpg
+    - Images/menu_icon/own_transfer_icon.jpg
+    - Images/menu_icon/otherbank_transfer_icon.jpg
+    - Images/menu_icon/favorites_icon.jpg
+    - Images/menu_icon/favorites_null_icon.jpg
+    - Images/menu_icon/favorites_null2_icon.jpg
+    - Images/menu_icon/digi_logo.jpg
+    - Images/menu_icon/singmeng_logo.jpg
+    - Images/menu_icon/onetv_logo.jpg
+    - Images/menu_icon/ezecom_logo.jpg
+    - Images/menu_icon/internet_icon.jpg
+    - Images/menu_icon/between_account_icon.jpg
+    - Images/menu_icon/to_account_image.jpg
+    - Images/menu_icon/from_account_image.jpg
+    - Images/menu_icon/add_favorites_off.jpg
+    - Images/menu_icon/add_favorites_on.jpg
+    - Images/menu_icon/bakong_logo.jpg
+    - Images/menu_icon/bank_account_logo.jpg
+    - Images/menu_icon/bakong_logo_rect.jpg
+    - Images/menu_icon/other_bank_logo.jpg
+    - Images/menu_icon/local_transfer_logo.jpg
+    - Images/menu_icon/elment.jpg
+    - Images/apd_image/first_page_vector.jpg
+    - Images/other/test_logo.jpg
+
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+     - family: Bayon
+       fonts:
+         - asset: fonts/Bayon-Regular.ttf
+     - family: Moul
+       fonts:
+         - asset: fonts/Moul-Regular.ttf
+     - family: Metal
+       fonts:
+         - asset: fonts/Metal-Regular.ttf
+
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package
