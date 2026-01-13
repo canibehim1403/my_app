@@ -8,7 +8,10 @@ class ApdUserSettingPage extends StatefulWidget {
 }
 
 class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
-  final TextEditingController _name = TextEditingController();
+  final List<int> steps = [30, 60, 120, 180];
+  bool isOn = false;
+  double _currentValue = 120;
+  double _currentValue_s = 60;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +43,7 @@ class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
                 ],
               ),
               Container(
-                margin: EdgeInsets.only(left: 60,),
+                margin: EdgeInsets.only(left: 50,),
                 child: Row(
                   children: [
                     Image.asset(
@@ -53,27 +56,27 @@ class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
                       "PERSONAL INFO",
                       style: TextStyle(
                         color: Color(0xFF00428A),
-                        fontSize: 20,
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 15,),
+              SizedBox(height: 10,),
               Container(
-                margin: EdgeInsets.only(left: 60, right: 60),
+                margin: EdgeInsets.only(left: 50, right: 50),
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "My Name",
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     color: Colors.grey.withOpacity(0.7),
                   ),
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(left: 60, right: 60),
+                margin: const EdgeInsets.only(left: 50, right: 50),
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 decoration: const BoxDecoration(
@@ -89,25 +92,25 @@ class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
                   "THORN RITHY",
                   style: TextStyle(
                     color: Color(0xFF00428A),
-                    fontSize: 20,
+                    fontSize: 16,
                     letterSpacing: 2,
                   ),
                 ),
               ),
-              SizedBox(height: 15,),
+              SizedBox(height: 10,),
               Container(
-                margin: EdgeInsets.only(left: 60, right: 60),
+                margin: EdgeInsets.only(left: 50, right: 50),
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Registered Phone Number",
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     color: Colors.grey.withOpacity(0.7),
                   ),
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(left: 60, right: 60),
+                margin: const EdgeInsets.only(left: 50, right: 50),
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 decoration: const BoxDecoration(
@@ -123,13 +126,13 @@ class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
                   "+855 123 456 789",
                   style: TextStyle(
                     color: Color(0xFF00428A),
-                    fontSize: 20,
+                    fontSize: 16,
                   ),
                 ),
               ),
               SizedBox(height: 15,),
               Container(
-                margin: EdgeInsets.only(left: 60, right: 60),
+                margin: EdgeInsets.only(left: 50, right: 50),
                 child: Row(
                   children: [
                     Expanded(
@@ -154,7 +157,7 @@ class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
                               "LANGUAGE",
                               style: TextStyle(
                                 color: Color(0xFF00428A),
-                                fontSize: 20,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -174,7 +177,7 @@ class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
               ),
               SizedBox(height: 15,),
               Container(
-                margin: EdgeInsets.only(left: 60,),
+                margin: EdgeInsets.only(left: 50,),
                 child: Row(
                   children: [
                     Image.asset(
@@ -187,7 +190,7 @@ class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
                       "SECURITY",
                       style: TextStyle(
                         color: Color(0xFF00428A),
-                        fontSize: 20,
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -196,7 +199,7 @@ class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
               ),
               SizedBox(height: 10,),
               Container(
-                margin: const EdgeInsets.only(left: 60, right: 60),
+                margin: const EdgeInsets.only(left: 50, right: 50),
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 decoration: const BoxDecoration(
@@ -217,7 +220,7 @@ class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
                           "Change Password",
                           style: TextStyle(
                             color: Color(0xFF00428A),
-                            fontSize: 20,
+                            fontSize: 16,
                           ),
                         ),
                       ),
@@ -237,11 +240,10 @@ class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
               ),
               SizedBox(height: 5,),
               Container(
-                margin: const EdgeInsets.only(left: 60, right: 60),
+                margin: const EdgeInsets.only(left: 50, right: 50),
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 decoration: const BoxDecoration(
-                  // This creates the blue line under your text
                   border: Border(
                     bottom: BorderSide(
                       color: Color(0xFF005599),
@@ -258,7 +260,7 @@ class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
                           "Change PIN",
                           style: TextStyle(
                             color: Color(0xFF00428A),
-                            fontSize: 20,
+                            fontSize: 16,
                           ),
                         ),
                       ),
@@ -276,6 +278,229 @@ class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
                   ],
                 ),
               ),
+              SizedBox(height: 15,),
+              Container(
+                margin: EdgeInsets.only(left: 50, right: 50),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "Images/menu_icon/icon_printfinger.jpg",
+                      height: 30,
+                      width: 30,
+                    ),
+                    SizedBox(width: 20,),
+                    Text(
+                      "BIOMETRIC",
+                      style: TextStyle(
+                        color: Color(0xFF00428A),
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10,),
+              Container(
+                margin: EdgeInsets.only(left: 60, right: 50),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Use Biometric Login",
+                        style: TextStyle(
+                          color: Color(0xFF00428A),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isOn = !isOn;},
+                        );},
+                      child: Image.asset(
+                        isOn ? "Images/menu_icon/add_favorites_on.jpg" : "Images/menu_icon/add_favorites_off.jpg",
+                        height: 40,
+                        width: 60,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10,),
+              Container(
+                margin: EdgeInsets.only(left: 50, right: 50),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "Images/menu_icon/biometric_transaction_limit_icon.jpg",
+                      height: 30,
+                      width: 30,
+                    ),
+                    SizedBox(width: 20,),
+                    Text(
+                      "BIOMETRIC TRANSACTION LIMIT",
+                      style: TextStyle(
+                        color: Color(0xFF00428A),
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 15,),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SliderTheme(
+                        data: SliderTheme.of(context).copyWith(
+                          trackHeight: 16,
+                          activeTrackColor: const Color(0xFF00428A),
+                          inactiveTrackColor: Colors.black12,
+                          thumbColor: Colors.white,
+                          valueIndicatorShape: const PaddleSliderValueIndicatorShape(),
+                          valueIndicatorColor: const Color(0xFF00428A),
+                          showValueIndicator: ShowValueIndicator.always,
+                        ),
+                        child: Slider(
+                          value: _currentValue,
+                          min: 0,
+                          max: 500,
+                          label: "${_currentValue.round()}\$",
+                          onChanged: (value) {
+                            setState(() {
+                              _currentValue = value;
+                            });
+                          },
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 20, right: 20),
+                        child: const Padding(
+                          padding: EdgeInsets.zero,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("0\$", style: TextStyle(color: Colors.black, fontSize: 16)),
+                              Text("500\$", style: TextStyle(color: Colors.black, fontSize: 16)),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 10,),
+              Center(
+                child: Text(
+                  "Maximum transaction limit using Biometric",
+                  style: TextStyle(
+                    color: Color(0xFF00428A),
+                    fontSize: 14,
+                  ),
+                ),
+              ),
+              SizedBox(height: 15,),
+              Container(
+                margin: EdgeInsets.only(left: 50, right: 50),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "Images/menu_icon/after_logout_icon.jpg",
+                      height: 30,
+                      width: 30,
+                    ),
+                    SizedBox(width: 20,),
+                    Text(
+                      "LOG OUT AFTER ",
+                      style: TextStyle(
+                        color: Color(0xFF00428A),
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 30,),
+              Container(
+                margin: EdgeInsets.only(left: 50, right: 50),
+                child: Center(
+                  child: Padding(
+                    padding: EdgeInsets.zero,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Duration",
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Color(0xFF00428A),
+                              fontWeight: FontWeight.bold
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        SliderTheme(
+                          data: SliderTheme.of(context).copyWith(
+                            trackHeight: 16,
+                            activeTrackColor: const Color(0xFF00428A),
+                            inactiveTrackColor: Colors.black12,
+                            thumbColor: Colors.white,
+                            valueIndicatorShape: const PaddleSliderValueIndicatorShape(),
+                            valueIndicatorColor: const Color(0xFF00428A),
+                            showValueIndicator: ShowValueIndicator.always,
+                            thumbShape: const RoundSliderThumbShape(
+                              enabledThumbRadius: 12.0,
+                              pressedElevation: 8.0,
+                            ),
+                          ),
+                          child: Slider(
+                            value: _currentValue_s,
+                            min: 30,
+                            max: 180,
+                            label: "${_currentValue_s.round()}\$",
+                            onChanged: (value) {
+                              setState(() {
+                                _currentValue_s = value;
+                              });
+                            },
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 30.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("30s", style: TextStyle(color: Colors.black)),
+                              Text("60s", style: TextStyle(color: Colors.black)),
+                              Text("120s", style: TextStyle(color: Colors.black)),
+                              Text("180s", style: TextStyle(color: Colors.black)),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 15),
+                        Center(
+                          child: Text(
+                            "PIN Required after ${_currentValue_s.round()} seconds",
+                            style: const TextStyle(color: Colors.black, fontSize: 16),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 40,),
             ],
           ),
         ),
