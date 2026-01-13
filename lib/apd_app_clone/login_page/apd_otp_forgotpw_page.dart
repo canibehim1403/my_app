@@ -1,8 +1,93 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:my_app/apd_app_clone/home_page/apd_homepage_classic.dart';
 
-class ApdOtpForgotpwPage extends StatelessWidget {
+import '../sign_up/apd_create_pin_page.dart';
+
+class ApdOtpForgotpwPage extends StatefulWidget {
   const ApdOtpForgotpwPage({super.key});
+
+  @override
+  State<ApdOtpForgotpwPage> createState() => _ApdOtpForgotpwPageState();
+}
+
+
+class _ApdOtpForgotpwPageState extends State<ApdOtpForgotpwPage> {
+  final int otpLength = 6;
+  late List<TextEditingController> controllers;
+  late List<FocusNode> focusNodes;
+  bool isOtpComplete = false;
+  bool _hasNavigated = false;
+
+  int remainingSeconds = 60;
+  Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    controllers = List.generate(otpLength, (_) => TextEditingController());
+    focusNodes = List.generate(otpLength, (_) => FocusNode());
+    _startTimer();
+  }
+
+  void _startTimer() {
+    _timer?.cancel();
+    setState(() {
+      remainingSeconds = 60;
+    });
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (remainingSeconds > 0) {
+        setState(() {
+          remainingSeconds--;
+        });
+      } else {
+        timer.cancel();
+      }
+    });
+  }
+
+  void _resetOtp() {
+    for (var c in controllers) {
+      c.clear();
+    }
+    setState(() {
+      isOtpComplete = false;
+    });
+    _startTimer();
+    // TODO: Hook into backend to send new OTP
+    print("New OTP sent!");
+  }
+  void _onChanged(String value, int index) {
+    if (value.isNotEmpty) {
+      if (index + 1 < otpLength) {
+        FocusScope.of(context).requestFocus(focusNodes[index + 1]);
+      } else {
+        FocusScope.of(context).unfocus();
+      }
+    } else {
+      if (index > 0) {
+        FocusScope.of(context).requestFocus(focusNodes[index - 1]);
+      }
+    }
+
+    final completed = controllers.every((c) => c.text.isNotEmpty);
+
+    setState(() {
+      isOtpComplete = completed;
+    });
+    if (completed && !_hasNavigated) {
+      _hasNavigated = true;
+      Future.microtask(() {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (_) => const ApdCreatePinPage(),
+          ),
+        );
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,62 +151,67 @@ class ApdOtpForgotpwPage extends StatelessWidget {
                       SizedBox(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(6, (index) {
+                        children: List.generate(otpLength, (index) {
                           return Container(
                             width: 40,
                             height: 50,
-                            margin: EdgeInsets.symmetric(horizontal: 5),
-                            decoration: BoxDecoration(
-                              border: Border(bottom: BorderSide(color: Colors.white, width: 1.5)),
-                            ),
-                            child: TextField(
-                              textAlign: TextAlign.center,
-                              style: TextStyle(color: Colors.white, fontSize: 24),
-                              keyboardType: TextInputType.number,
-                              maxLength: 1,
-                              decoration: InputDecoration(
-                                counterText: "", // Hide character counter
-                                border: InputBorder.none,
+                            margin: const EdgeInsets.symmetric(horizontal: 5),
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                    color: Colors.white, width: 1.5),
                               ),
                             ),
+                            child: TextField(
+                              controller: controllers[index],
+                              focusNode: focusNodes[index],
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 24),
+                              keyboardType: TextInputType.number,
+                              maxLength: 1,
+                              decoration: const InputDecoration(
+                                counterText: "",
+                                border: InputBorder.none,
+                              ),
+                              onChanged: (value) => _onChanged(value, index),
+                            ),
                           );
-                        },
-                        ),
+                        }),
                       ),
                       SizedBox(height: 40),
                       Container(
-                        margin: EdgeInsets.all(20),
-                        child: Text("OTP code is expired in 60s",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
+                        margin: const EdgeInsets.all(20),
+                        child: Text(
+                          remainingSeconds > 0
+                              ? "OTP code will expire in ${remainingSeconds}s"
+                              : "OTP code has expired",
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 16),
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      SizedBox(height: 140),
-                      SizedBox(
-                        width: 230,
-                        height: 70,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.cyan,
-                            padding: EdgeInsets.symmetric(vertical: 14),
-                          ),
-                          onPressed: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => ApdHomePageClassic()),
-                            );
-                          },
-                          child: Text("Confirm",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                      const SizedBox(height: 40),
+                      if (remainingSeconds == 0)
+                        SizedBox(
+                          width: 230,
+                          height: 70,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.cyan,
+                              padding:
+                              const EdgeInsets.symmetric(vertical: 14),
+                            ),
+                            onPressed: _resetOtp,
+                            child: const Text(
+                              "Resend OTP",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
-                      ),
                     ],
                   ),
                 ),

@@ -191,8 +191,6 @@ class _ApdOtpPageState extends State<ApdOtpPage> {
                         ),
                       ),
                       const SizedBox(height: 40),
-
-                      // ✅ Only show Reset OTP when expired
                       if (remainingSeconds == 0)
                         SizedBox(
                           width: 230,
