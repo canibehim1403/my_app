@@ -139,6 +139,11 @@ flutter:
     - Images/menu_icon/elment.jpg
     - Images/apd_image/first_page_vector.jpg
     - Images/other/test_logo.jpg
+    - Images/menu_icon/user_setting_page.jpg
+    - Images/menu_icon/default_account_icon.jpg
+    - Images/menu_icon/user_setting_account_icon.jpg
+    - Images/menu_icon/global_icon.jpg
+    - Images/menu_icon/security_icon.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
