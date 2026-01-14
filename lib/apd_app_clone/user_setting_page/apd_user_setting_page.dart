@@ -21,15 +21,37 @@ class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
       backgroundColor: Colors.grey.withOpacity(0.4),
       body: SingleChildScrollView(
         child: Container(
+          //padding: const EdgeInsets.symmetric(horizontal: 12.0),
           child: Column(
             children: [
               Stack(
                 children: [
-                  Container(
-                    child: Image.asset(
-                      "Images/menu_icon/user_setting_page.jpg",
-                      fit: BoxFit.cover,
-                    ),
+                  Image.asset(
+                    "Images/menu_icon/user_setting_page.jpg",
+                    fit: BoxFit.cover,
+                  ),
+                  Positioned(
+                      left: 30,
+                      top: 60,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: 18,
+                            width: 18,
+                            child: Image.asset("Images/apd_image/vector.jpg"),
+                          ),
+                          SizedBox(width: 10),
+                          Text("User Setting", style: TextStyle(color: Colors.white, fontSize: 22),),
+                        ],
+                      ),
+                  ),
+                  Positioned(
+                      left: 60,
+                      top: 90,
+                      child: Container(
+                        child: Text("V 10.0.0.10", style: TextStyle(color: Colors.grey, fontSize: 18),),
+                      ),
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 130),
