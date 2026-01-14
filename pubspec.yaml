@@ -147,6 +147,12 @@ flutter:
     - Images/menu_icon/icon_printfinger.jpg
     - Images/menu_icon/biometric_transaction_limit_icon.jpg
     - Images/menu_icon/after_logout_icon.jpg
+    - Images/menu_icon/about_us_icon.jpg
+    - Images/menu_icon/contact_us_icon.jpg
+    - Images/menu_icon/faq_icon.jpg
+    - Images/menu_icon/term_condition_icon.jpg
+    - Images/menu_icon/user_setting_icon.jpg
+    - Images/menu_icon/logout_icon.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
