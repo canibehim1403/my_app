@@ -17,7 +17,6 @@ class ApdEditMenuPage extends StatelessWidget {
                 child: Container(
                   height: double.infinity,
                   width: double.infinity,
-
                 ),
             ),
             Container(
@@ -32,7 +31,6 @@ class ApdEditMenuPage extends StatelessWidget {
             Expanded(
               flex: 6,
               child: Container(
-                //margin: EdgeInsets.only( top: 30,),
                 clipBehavior: Clip.hardEdge,
                 height: double.infinity,
                 width: double.infinity,
@@ -41,43 +39,201 @@ class ApdEditMenuPage extends StatelessWidget {
                       topRight: Radius.circular(30),
                       topLeft: Radius.circular(30),
                   ),
-                  color: Colors.cyan,
+                  color: Colors.cyan.withOpacity(0.7),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                    SizedBox(height: 30,),
+                    SizedBox(
+                      child: Container(
+                        margin: EdgeInsets.only(left: 10, right: 10),
+                        color: Colors.black,
+                        width: 400,
+                        height: 2,
+                      ),
+                    ),
                     Container(
-                      margin: EdgeInsets.only(left: 20, right: 20, top: 80),
+                      margin: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            child: Image.asset(
-                                "Images/other/test_logo.jpg",
-                              height: 70,
-                              width: 70,
-                            ),
+                          Column(
+                            children: [
+                              Container(
+                                child: Image.asset(
+                                    "Images/other/test_logo.jpg",
+                                  height: 70,
+                                  width: 70,
+                                ),
+                              ),
+                              SizedBox(height: 5,),
+                              Center(
+                                child: Text(
+                                  "Exchange\nRate",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          Container(
-                            child: Image.asset(
-                              "Images/other/test_logo.jpg",
-                              height: 70,
-                              width: 70,
-                            ),
+                          Column(
+                            children: [
+                              Container(
+                                child: Image.asset(
+                                  "Images/other/test_logo.jpg",
+                                  height: 70,
+                                  width: 70,
+                                ),
+                              ),
+                              SizedBox(height: 5,),
+                              Center(
+                                child: Text(
+                                  "Exchange\nRate",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          Container(
-                            child: Image.asset(
-                              "Images/other/test_logo.jpg",
-                              height: 70,
-                              width: 70,
-                            ),
+                          Column(
+                            children: [
+                              Container(
+                                child: Image.asset(
+                                  "Images/other/test_logo.jpg",
+                                  height: 70,
+                                  width: 70,
+                                ),
+                              ),
+                              SizedBox(height: 5,),
+                              Center(
+                                child: Text(
+                                  "Exchange\nRate",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          Container(
-                            child: Image.asset(
-                              "Images/other/test_logo.jpg",
-                              height: 70,
-                              width: 70,
-                            ),
+                          Column(
+                            children: [
+                              Container(
+                                child: Image.asset(
+                                  "Images/other/test_logo.jpg",
+                                  height: 70,
+                                  width: 70,
+                                ),
+                              ),
+                              SizedBox(height: 5,),
+                              Center(
+                                child: Text(
+                                  "Exchange\nRate",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Container(
+                                child: Image.asset(
+                                  "Images/other/test_logo.jpg",
+                                  height: 70,
+                                  width: 70,
+                                ),
+                              ),
+                              SizedBox(height: 5,),
+                              Center(
+                                child: Text(
+                                  "Exchange\nRate",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                child: Image.asset(
+                                  "Images/other/test_logo.jpg",
+                                  height: 70,
+                                  width: 70,
+                                ),
+                              ),
+                              SizedBox(height: 5,),
+                              Center(
+                                child: Text(
+                                  "Exchange\nRate",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                child: Image.asset(
+                                  "Images/other/test_logo.jpg",
+                                  height: 70,
+                                  width: 70,
+                                ),
+                              ),
+                              SizedBox(height: 5,),
+                              Center(
+                                child: Text(
+                                  "Exchange\nRate",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                child: Image.asset(
+                                  "Images/other/test_logo.jpg",
+                                  height: 70,
+                                  width: 70,
+                                ),
+                              ),
+                              SizedBox(height: 5,),
+                              Center(
+                                child: Text(
+                                  "Exchange\nRate",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
