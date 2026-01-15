@@ -41,7 +41,251 @@ class _ApdFixedDepositPageState extends State<ApdFixedDepositPage> {
                     )
                   ],
                 ),
-                SizedBox(height: 300,),
+                SizedBox(height: 30,),
+                Container(
+                  clipBehavior: Clip.hardEdge,
+                  margin: EdgeInsets.only(left: 20, right: 20),
+                  height: 120,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        "Images/menu_icon/account_background.jpg",
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 6,
+                              child: Container(
+                                margin: EdgeInsets.only(top: 30),
+                                child: Text(
+                                  "Monthly Interest\nWithdrawal (USD)",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                          ),
+                          Expanded(
+                            flex: 6,
+                            child: Container(
+                              margin: EdgeInsets.only(top: 30,right: 20),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "10%-20%",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  Icon(
+                                    Icons.keyboard_arrow_down,
+                                    color: Colors.white,
+                                    size: 40,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20,),
+                Container(
+                  clipBehavior: Clip.hardEdge,
+                  margin: EdgeInsets.only(left: 20, right: 20),
+                  height: 120,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        "Images/menu_icon/account_background.jpg",
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 6,
+                            child: Container(
+                              margin: EdgeInsets.only(top: 30),
+                              child: Text(
+                                "Monthly Interest\nWithdrawal (USD)",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 6,
+                            child: Container(
+                              margin: EdgeInsets.only(top: 30,right: 20),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "10%-20%",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  Icon(
+                                    Icons.keyboard_arrow_down,
+                                    color: Colors.white,
+                                    size: 40,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20,),
+                Container(
+                  clipBehavior: Clip.hardEdge,
+                  margin: EdgeInsets.only(left: 20, right: 20),
+                  height: 120,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        "Images/menu_icon/account_background.jpg",
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 6,
+                            child: Container(
+                              margin: EdgeInsets.only(top: 30),
+                              child: Text(
+                                "Monthly Interest\nWithdrawal (USD)",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 6,
+                            child: Container(
+                              margin: EdgeInsets.only(top: 30,right: 20),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "10%-20%",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  Icon(
+                                    Icons.keyboard_arrow_down,
+                                    color: Colors.white,
+                                    size: 40,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20,),
+                Container(
+                  clipBehavior: Clip.hardEdge,
+                  margin: EdgeInsets.only(left: 20, right: 20),
+                  height: 120,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        "Images/menu_icon/account_background.jpg",
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 6,
+                            child: Container(
+                              margin: EdgeInsets.only(top: 30),
+                              child: Text(
+                                "Monthly Interest\nWithdrawal (USD)",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 6,
+                            child: Container(
+                              margin: EdgeInsets.only(top: 30,right: 20),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "10%-20%",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  Icon(
+                                    Icons.keyboard_arrow_down,
+                                    color: Colors.white,
+                                    size: 40,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 140,),
                 Column(
                   children: [
                     Container(

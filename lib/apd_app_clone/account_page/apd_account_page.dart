@@ -57,7 +57,7 @@ class _ApdAccountPageState extends State<ApdAccountPage> {
                       ),
                     ],
                   ),
-                  child: Stack(   // ✅ Positioned is valid here
+                  child: Stack(
                     children: [
                       Image.asset(
                         "Images/menu_icon/account_background.jpg",
