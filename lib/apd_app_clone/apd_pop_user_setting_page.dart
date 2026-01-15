@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/apd_app_clone/login_page/apd_login_page.dart';
+import 'package:my_app/apd_app_clone/user_setting_page/apd_user_setting_page.dart';
 
-import 'login_page/apd_otp_forgotpw_page.dart';
 class ApdPopUserSettingPage extends StatelessWidget {
   const ApdPopUserSettingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      //backgroundColor: Colors.grey,
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -79,10 +79,22 @@ class ApdPopUserSettingPage extends StatelessWidget {
                                     fontSize: 20,
                                   ),
                                 ),
-                                Image.asset(
-                                  "Images/menu_icon/three_dot.jpg",
-                                  height: 35,
-                                  color: Colors.white,
+                                Material(
+                                  color: Colors.transparent,
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(45),
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => ApdUserSettingPage()),
+                                      );
+                                    },
+                                    child: Image.asset(
+                                      "Images/menu_icon/three_dot.jpg",
+                                      height: 35,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
                               ],
                             )
@@ -151,10 +163,22 @@ class ApdPopUserSettingPage extends StatelessWidget {
                                       fontSize: 20,
                                     ),
                                   ),
-                                  Image.asset(
-                                    "Images/menu_icon/three_dot.jpg",
-                                    height: 35,
-                                    color: Colors.white,
+                                  Material(
+                                    color: Colors.transparent,
+                                    child: InkWell(
+                                      borderRadius: BorderRadius.circular(45), // match icon shape
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => ApdUserSettingPage()),
+                                        );
+                                      },
+                                      child: Image.asset(
+                                        "Images/menu_icon/three_dot.jpg",
+                                        height: 35,
+                                        color: Colors.white,
+                                      ),
+                                    ),
                                   ),
                                 ],
                               )
