@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:my_app/apd_app_clone/favorites_page/apd_favorites_page.dart';
 import 'package:my_app/apd_app_clone/fixed_deposit_page/apd_fixed_deposit_page.dart';
@@ -12,15 +14,51 @@ class ApdHomePageClassic extends StatefulWidget {
 }
 
 class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
-  final PageController _accountPageController = PageController();
-  final PageController _adsPageController = PageController();
-  int _currentAccountPage = 0;
-  int _currentAdsPage = 0;
+  late PageController _accountPageController;
+  late List<Map<String, String>> loopedAccounts;
+  int _currentAccountPage = 1;
+  Timer? _accountTimer;
+  late List<String> loopedImages;
+  late PageController _adsPageController;
+  int _currentAdsPage = 1;
+  Timer? _adsTimer;
+  @override
+  void dispose() {
+    _adsTimer?.cancel();
+    _adsPageController.dispose();
+    _accountTimer?.cancel();
+    _accountPageController.dispose();
+    super.dispose();
+  }
   final List<String> _adBanners = [
     "Images/menu_icon/advertise_banner.jpg",
     "Images/menu_icon/advertise_banner.jpg",
     "Images/menu_icon/advertise_banner.jpg",
   ];
+  @override void initState() {
+    super.initState();
+    loopedImages = [_adBanners.last, ..._adBanners, _adBanners.first];
+    _adsPageController = PageController(initialPage: _currentAdsPage);
+    _adsTimer = Timer.periodic(const Duration(seconds: 3), (Timer timer) {
+      _currentAdsPage++;
+      _adsPageController.animateToPage(
+        _currentAdsPage,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    });
+    loopedAccounts = [_accountBanners.last, ..._accountBanners, _accountBanners.first];
+    _accountPageController = PageController(initialPage: _currentAccountPage);
+    _accountTimer = Timer.periodic(const Duration(seconds: 3), (Timer timer) {
+      _currentAccountPage++;
+      _accountPageController.animateToPage(
+        _currentAccountPage,
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeInOut,
+      );
+    });
+  }
+
   final List<Map<String, String>> _accountBanners = [
     {
       "name": "Thorn Rithy",
@@ -111,17 +149,23 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                     height: 300,
                     child: PageView.builder(
                       controller: _accountPageController,
-                      itemCount: _accountBanners.length,
+                      itemCount: loopedAccounts.length,
                       onPageChanged: (index) {
-                        setState(() => _currentAccountPage = index);
-                        if (index == _accountBanners.length - 1) {
-                          Future.delayed(Duration(milliseconds: 300), () {
-                            _accountPageController.jumpToPage(0);
-                          });
-                        }
+                        setState(() {
+                          _currentAccountPage = index;
+
+                          // Infinite loop behavior
+                          if (index == 0) {
+                            _accountPageController.jumpToPage(loopedAccounts.length - 2);
+                            _currentAccountPage = loopedAccounts.length - 2;
+                          } else if (index == loopedAccounts.length - 1) {
+                            _accountPageController.jumpToPage(1);
+                            _currentAccountPage = 1;
+                          }
+                        });
                       },
                       itemBuilder: (context, index) {
-                        final account = _accountBanners[index];
+                        final account = loopedAccounts[index];
                         return _accountBanner(
                           name: account["name"]!,
                           accountNo: account["accountNo"]!,
@@ -132,17 +176,17 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 270),
+                    margin: const EdgeInsets.only(top: 270),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(3, (index) {
+                      children: List.generate(_accountBanners.length, (index) {
                         return AnimatedContainer(
-                          duration: Duration(milliseconds: 100),
-                          margin: EdgeInsets.symmetric(horizontal: 6),
-                          width: _currentAccountPage == index ? 36 : 30,
+                          duration: const Duration(milliseconds: 250),
+                          margin: const EdgeInsets.symmetric(horizontal: 6),
+                          width: (_currentAccountPage - 1) == index ? 36 : 30,
                           height: 3,
                           decoration: BoxDecoration(
-                            color: _currentAccountPage == index
+                            color: (_currentAccountPage - 1) == index
                                 ? Colors.blue
                                 : Colors.grey.shade300,
                             borderRadius: BorderRadius.circular(4),
@@ -151,6 +195,7 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                       }),
                     ),
                   ),
+
                   Positioned(
                       child: Container(
                         alignment: Alignment.centerLeft,
@@ -476,38 +521,44 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                           height: 120,
                           child: PageView.builder(
                             controller: _adsPageController,
-                            itemCount: _adBanners.length,
+                            itemCount: loopedImages.length,
                             onPageChanged: (index) {
-                              setState(() => _currentAdsPage = index);
-                              if (index == _adBanners.length - 1) {
-                                Future.delayed(Duration(milliseconds: 300), () {
-                                  _adsPageController.jumpToPage(0);
-                                });
-                              }
+                              setState(() {
+                                _currentAdsPage = index;
+                                if (index == 0) {
+                                  _adsPageController.jumpToPage(loopedImages.length - 2);
+                                  _currentAdsPage = loopedImages.length - 2;
+                                } else if (index == loopedImages.length - 1) {
+                                  _adsPageController.jumpToPage(1);
+                                  _currentAdsPage = 1;
+                                }
+                              });
                             },
                             itemBuilder: (context, index) {
-                              return Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 15),
-                                child: Image.asset(
-                                  _adBanners[index],
-                                  fit: BoxFit.cover,
-                                  width: double.infinity,
+                              return Container(
+                                margin: const EdgeInsets.symmetric(horizontal: 15),
+                                decoration: BoxDecoration(
+                                  //borderRadius: BorderRadius.circular(16),
+                                  image: DecorationImage(
+                                    image: AssetImage(loopedImages[index]),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               );
                             },
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(3, (index) {
+                          children: List.generate(_adBanners.length, (index) {
                             return AnimatedContainer(
-                              duration: Duration(milliseconds: 250),
-                              margin: EdgeInsets.symmetric(horizontal: 6),
-                              width: _currentAdsPage == index ? 36 : 30,
+                              duration: const Duration(milliseconds: 250),
+                              margin: const EdgeInsets.symmetric(horizontal: 6),
+                              width: (_currentAdsPage - 1) == index ? 36 : 30,
                               height: 3,
                               decoration: BoxDecoration(
-                                color: _currentAdsPage == index
+                                color: (_currentAdsPage - 1) == index
                                     ? Colors.blue
                                     : Colors.grey.shade300,
                                 borderRadius: BorderRadius.circular(4),
@@ -517,7 +568,7 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                         ),
                       ],
                     ),
-                  ),
+                  )
                 ],
               ),
             ),

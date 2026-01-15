@@ -10,7 +10,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       home: Center(
         child: Scaffold(
-          body: ApdPopUserSettingPage(),
+          body: ApdHomePageClassic(),
         ),
       ),
     ),
