@@ -102,7 +102,6 @@ class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 decoration: const BoxDecoration(
-                  // This creates the blue line under your text
                   border: Border(
                     bottom: BorderSide(
                       color: Color(0xFF005599),
