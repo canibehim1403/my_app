@@ -35,11 +35,18 @@ class ApdEditMenuPage extends StatelessWidget {
                 height: double.infinity,
                 width: double.infinity,
                 decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Color(0xFF37B3C9),
+                      Color(0xFF3891C7),
+                    ],
+                  ),
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(30),
                       topLeft: Radius.circular(30),
                   ),
-                  color: Colors.cyan.withOpacity(0.7),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

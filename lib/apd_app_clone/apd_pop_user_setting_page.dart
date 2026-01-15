@@ -37,11 +37,18 @@ class ApdPopUserSettingPage extends StatelessWidget {
                 height: double.infinity,
                 width: double.infinity,
                 decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Color(0xFF37B3C9),
+                      Color(0xFF3891C7),
+                    ],
+                  ),
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(30),
                     topLeft: Radius.circular(30),
                   ),
-                  color: Color(0xFF00428A).withOpacity(0.8),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -234,7 +241,7 @@ class ApdPopUserSettingPage extends StatelessWidget {
                         height: 70,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.cyan,
+                            backgroundColor: Colors.cyan.withOpacity(0.5),
                             padding: EdgeInsets.symmetric(vertical: 14),
                           ),
                           onPressed: (){
