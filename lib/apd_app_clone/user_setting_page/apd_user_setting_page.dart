@@ -18,10 +18,8 @@ class _ApdUserSettingPageState extends State<ApdUserSettingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.grey.withOpacity(0.4),
       body: SingleChildScrollView(
         child: Container(
-          //padding: const EdgeInsets.symmetric(horizontal: 12.0),
           child: Column(
             children: [
               Stack(

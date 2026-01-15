@@ -11,7 +11,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       home: Center(
         child: Scaffold(
-          body: ApdFixedDepositPage(),
+          body: ApdHomePageClassic(),
         ),
       ),
     ),
