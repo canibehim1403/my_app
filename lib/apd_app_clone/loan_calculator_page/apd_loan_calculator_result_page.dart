@@ -21,9 +21,7 @@ class _ApdLoanCalculatorResultPageState extends State<ApdLoanCalculatorResultPag
             Expanded(
               flex: 2,
               child: Container(
-
                 color: Colors.white,
-
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -198,10 +196,16 @@ class _ApdLoanCalculatorResultPageState extends State<ApdLoanCalculatorResultPag
                             flex: 6,
                             child: Row(
                               children: [
-                                Icon(
-                                  Icons.circle,
-                                  color: Colors.white,
-                                  size: 25,
+                                Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.white,
+                                  ),
+                                  child: Icon(
+                                    Icons.circle,
+                                    color: Colors.blue,
+                                    size: 20,
+                                  ),
                                 ),
                                 SizedBox(width: 5,),
                                 Text(
