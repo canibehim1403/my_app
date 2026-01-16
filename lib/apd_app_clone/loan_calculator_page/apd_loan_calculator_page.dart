@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_app/apd_app_clone/home_page/apd_homepage_classic.dart';
 
 import '../login_page/apd_login_page.dart';
 
 class ApdLoanCalculatorPage extends StatefulWidget {
   const ApdLoanCalculatorPage({super.key});
+
 
   @override
   State<ApdLoanCalculatorPage> createState() => _ApdLoanCalculatorPageState();
@@ -12,10 +14,23 @@ class ApdLoanCalculatorPage extends StatefulWidget {
 
 class _ApdLoanCalculatorPageState extends State<ApdLoanCalculatorPage> {
   final TextEditingController amountController = TextEditingController();
-  final TextEditingController remarkController = TextEditingController();
+  final TextEditingController loantermController = TextEditingController();
+  final TextEditingController interestrateController = TextEditingController();
   String amountText = '';
+  String loantermText = '';
+  String interestrateText = '';
+  String selectedCurrency = '';
+  double _dragPosition = 0.0;
+  bool get _isFormComplete {
+    return selectedCurrency.isNotEmpty
+        && amountController.text.trim().isNotEmpty
+        && loantermController.text.trim().isNotEmpty
+        && interestrateController.text.trim().isNotEmpty;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final maxWidth = MediaQuery.of(context).size.width - 80;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
@@ -64,63 +79,59 @@ class _ApdLoanCalculatorPageState extends State<ApdLoanCalculatorPage> {
               children: [
                 Expanded(
                   flex: 6,
-                    child: Container(
-                        child: Center(
-                          child: SizedBox(
-                            width: 180,
-                            height: 60,
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.cyanAccent.withOpacity(0.2),
-                                  padding: EdgeInsets.symmetric(vertical: 14),
-                                ),
-                                onPressed: (){
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => ApdLoginPage()),
-                                  );
-                                },
-                              child: Center(
-                                child: Text(
-                                  "KHR",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ),
+                  child: Container(
+                    child: Center(
+                      child: InkWell(
+                        onTap: () {
+                          setState(() => selectedCurrency = "KHR");
+                        },
+                        child: Container(
+                          width: 180,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            color: selectedCurrency == "KHR"
+                                ? Colors.cyan // highlight when selected
+                                : Colors.cyanAccent.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          alignment: Alignment.center,
+                          child: Text(
+                            "KHR",
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
                             ),
                           ),
                         ),
+                      ),
                     ),
+                  ),
                 ),
                 Expanded(
                   flex: 6,
                   child: Container(
                     child: Center(
-                      child: SizedBox(
-                        width: 180,
-                        height: 60,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.cyanAccent.withOpacity(0.2),
-                            padding: EdgeInsets.symmetric(vertical: 14),
+                      child: InkWell(
+                        onTap: () {
+                          setState(() => selectedCurrency = "USD");
+                        },
+                        child: Container(
+                          width: 180,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            color: selectedCurrency == "USD"
+                                ? Colors.cyan
+                                : Colors.cyanAccent.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(30),
                           ),
-                          onPressed: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => ApdLoginPage()),
-                            );
-                          },
-                          child: Center(
-                            child: Text(
-                              "USD",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),
+                          alignment: Alignment.center,
+                          child: Text(
+                            "USD",
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
                             ),
                           ),
                         ),
@@ -211,10 +222,10 @@ class _ApdLoanCalculatorPageState extends State<ApdLoanCalculatorPage> {
               child: Stack(
                 children: [
                   TextField(
-                    controller: amountController,
+                    controller: loantermController,
                     onChanged: (value) {
                       setState(() {
-                        amountText = value.trim();
+                        loantermText = value.trim();
                       },
                       );
                     },
@@ -262,10 +273,10 @@ class _ApdLoanCalculatorPageState extends State<ApdLoanCalculatorPage> {
               child: Stack(
                 children: [
                   TextField(
-                    controller: amountController,
+                    controller: interestrateController,
                     onChanged: (value) {
                       setState(() {
-                        amountText = value.trim();
+                        interestrateText = value.trim();
                       },
                       );
                     },
@@ -306,6 +317,123 @@ class _ApdLoanCalculatorPageState extends State<ApdLoanCalculatorPage> {
                   )
                 ],
               ),
+            ),
+            SizedBox(height: 80,),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 40),
+              height: 80,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: Colors.cyan,
+              ),
+              child: Stack(
+                children: [
+                  Center(
+                    child: Text(
+                      "Swipe to Calculate",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: _dragPosition,
+                    top: 10,
+                    child: GestureDetector(
+                        onHorizontalDragUpdate: (details) {
+                          if (!_isFormComplete) return;
+                          setState(() {
+                            _dragPosition += details.delta.dx;
+                            _dragPosition = _dragPosition.clamp(0.0, maxWidth - 80);
+                          });},
+                        onHorizontalDragEnd: (details) {
+                          if (!_isFormComplete) return;
+                          if (_dragPosition > maxWidth * 0.7) {
+                            print("Swipe confirmed! Run calculation...");
+                          } else {
+                            setState(() => _dragPosition = 0.0);
+                          }
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(left: 10, top: 5,),
+                          child: Image.asset(
+                            "Images/menu_icon/swipe_to_confirm_icon.jpg",
+                            height: 60,
+                            width: 60,
+                          ),
+                        ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 87,),
+            Column(
+              children: [
+                Container(
+                  alignment: Alignment.center,
+                  child: Image.asset(
+                    "Images/menu_icon/arrow_classic.jpg",
+                    fit: BoxFit.contain,
+                    height: 35,
+                    width: 80,
+                  ),
+                ),
+                Stack(
+                  children: [
+                    Container(
+                      clipBehavior: Clip.hardEdge,
+                      width: double.infinity,
+                      height: 80,
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color(0xFF3891C7),
+                              Color(0xFF3891C7),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20))
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.fromLTRB(30, 20, 30, 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context, MaterialPageRoute(builder: (context) => ApdHomePageClassic()),
+                              );
+                            },
+                            child: Image.asset(
+                              "Images/menu_icon/home_icon.jpg",
+                              height: 30,
+                              width: 30,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context, MaterialPageRoute(builder: (context) => const ApdHomePageClassic()),
+                              );
+                            },
+                            child: Image.asset(
+                              "Images/menu_icon/back_icon.jpg",
+                              height: 30,
+                              width: 30,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ],
         ),

@@ -154,6 +154,7 @@ flutter:
     - Images/menu_icon/user_setting_icon.jpg
     - Images/menu_icon/logout_icon.jpg
     - Images/apd_image/loan_calculator_icon.jpg
+    - Images/menu_icon/swipe_to_confirm_icon.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
