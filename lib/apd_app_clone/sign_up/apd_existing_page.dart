@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/apd_app_clone/login_page/apd_login_page.dart';
 import 'package:my_app/apd_app_clone/sign_up/apd_first_page.dart';
 import 'package:my_app/apd_app_clone/sign_up/apd_signup_page.dart';
 import '../support_func/func.dart';
@@ -39,7 +40,7 @@ class ENExistingPage extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context, MaterialPageRoute(
-                        builder: (context) => ApdSignupPage()),
+                        builder: (context) => ApdLoginPage()) //ApdSignupPage()),
                     );
                   },
                   child: Container(
