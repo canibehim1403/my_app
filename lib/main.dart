@@ -28,8 +28,6 @@ void main() async{
 
   await box.close();
 
-
-
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,

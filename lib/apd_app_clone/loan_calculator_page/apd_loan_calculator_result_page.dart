@@ -17,7 +17,6 @@ class _ApdLoanCalculatorResultPageState extends State<ApdLoanCalculatorResultPag
       body: Container(
         child: Column(
           children: [
-            //SizedBox(height: 70),
             Expanded(
               flex: 2,
               child: Container(
