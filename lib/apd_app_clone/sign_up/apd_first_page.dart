@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:hive_ce/hive.dart';
 import 'package:my_app/apd_app_clone/sign_up/apd_existing_page.dart';
 import 'package:my_app/apd_app_clone/sign_up/second_page.dart';
+import '../../constants.dart';
+import '../login_page/apd_login_page.dart';
 import '../support_func/func.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
+  Future<void> _selectLanguage(BuildContext context, Widget nextPage) async {
+    final box = await Hive.openBox('userSavedBox');
+    await box.put(AppConstants.isLanguageSelected, true);
+    await box.put(AppConstants.isLogin, false);
+    Navigator.pushReplacement(
+      context, MaterialPageRoute(builder: (context) => const ApdLoginPage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
