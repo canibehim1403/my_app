@@ -8,5 +8,6 @@ class AppConstants {
   static const double defaultPadding = 16.0;
 
   static const isLogin = "isLogin";
+  static const isLanguageSelected = "isLanguageSelected";
 
 }
