@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hive_ce/hive.dart';
 import 'package:my_app/apd_app_clone/login_page/apd_login_page.dart';
 import 'package:my_app/apd_app_clone/user_setting_page/apd_user_setting_page.dart';
+
+import '../constants.dart';
 
 class ApdPopUserSettingPage extends StatelessWidget {
   const ApdPopUserSettingPage({super.key});
@@ -58,9 +61,13 @@ class ApdPopUserSettingPage extends StatelessWidget {
                     backgroundColor: Colors.cyan.withOpacity(0.5),
                     padding: const EdgeInsets.symmetric(vertical: 14),
                   ),
-                  onPressed: () {
-                    Navigator.push( context, MaterialPageRoute(
-                        builder: (context) => ApdLoginPage()),
+                  onPressed: () async {
+                    final box = await Hive.openBox('userSavedBox');
+                    await box.put(AppConstants.isLogin, false);
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => const ApdLoginPage()),
+                          (route) => false,
                     );
                   },
                   child: Row(
