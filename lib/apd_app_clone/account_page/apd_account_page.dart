@@ -97,267 +97,83 @@ class _ApdAccountPageState extends State<ApdAccountPage> {
                   ),
                 ),
                 SizedBox(height: 30,),
-                Positioned(
-                  width: double.infinity,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                          color: Colors.blue,
-                          height: 6,
-                          width: double.infinity,
-                        ),
-                      ),
-                      Expanded(
-                        flex: 10,
-                        child: Container(
-                          color: Colors.grey,
-                          height: 6,
-                          width: double.infinity,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Stack(
+                Row(
                   children: [
-                    Positioned(
-                      child: Column(
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        color: Colors.blue,
+                        height: 6,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 10,
+                      child: Container(
+                        color: Colors.grey,
+                        height: 6,
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                      color: Colors.grey.withOpacity(0.1),
+                      height: 80,
+                      width: double.infinity,
+                      child: Row(
                         children: [
-                          Container(
-                            color: Colors.grey.withOpacity(0.1),
-                            height: 80,
-                            width: double.infinity,
-                            child: Row(
+                          Expanded(
+                            flex: 3,
+                            child: Image.asset(
+                              "Images/menu_icon/current_account_icon.jpg",
+                              fit: BoxFit.contain,
+                              height: 60,
+                              width: 70,
+                              alignment: Alignment.center,
+                            ),
+                          ),
+                          Expanded(
+                            flex: 9,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Expanded(
-                                  flex: 3,
-                                    child: Image.asset(
-                                      "Images/menu_icon/current_account_icon.jpg",
-                                      fit: BoxFit.contain,
-                                      height: 60,
-                                      width: 70,
-                                      alignment: Alignment.center,
-                                    )
+                                const SizedBox(height: 10),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const ApdHomePageClassic()),
+                                    );
+                                  },
+                                  child: const Text(
+                                    "Current Account | 123 456 789",
+                                    style: TextStyle(color: Colors.black, fontSize: 14),
+                                  ),
                                 ),
-                                Expanded(
-                                  flex: 9,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(height: 10,),
-                                        Text(
-                                          "Current Account | 123 456 789",
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 14,
-                                          ),
+                                Container(
+                                  margin: const EdgeInsets.only(right: 10),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => const ApdHomePageClassic()),
+                                          );
+                                        },
+                                        child: const Text(
+                                          "100,000.00 USD",
+                                          style: TextStyle(color: Colors.black, fontSize: 20),
                                         ),
-                                        Container(
-                                          margin: EdgeInsets.only(right: 10),
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "100,000.00 USD",
-                                                style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 20,
-                                                ),
-                                              ),
-                                              Image.asset(
-                                                "Images/menu_icon/three_dot.jpg",
-                                                height: 30,
-                                              ),
-                                            ],
-                                          ),
+                                      ),
+                                      Image.asset(
+                                          "Images/menu_icon/three_dot.jpg",
+                                          height: 30,
                                         ),
-                                      ],
-                                    )
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            child: Container(
-                              color: Colors.grey.withOpacity(0.5),
-                              width: double.infinity,
-                              height: 2,
-                            ),
-                          ),
-                          Container(
-                            color: Colors.grey.withOpacity(0.1),
-                            height: 80,
-                            width: double.infinity,
-                            child: Row(
-                              children: [
-                                Expanded(
-                                    flex: 3,
-                                    child: Image.asset(
-                                      "Images/menu_icon/saving_account_icon.jpg",
-                                      fit: BoxFit.contain,
-                                      height: 60,
-                                      width: 70,
-                                      alignment: Alignment.center,
-                                    )
-                                ),
-                                Expanded(
-                                    flex: 9,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(height: 10,),
-                                        Text(
-                                          "Saving Account | 123 456 789",
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.only(right: 10),
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "100,000.00 KHR",
-                                                style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 20,
-                                                ),
-                                              ),
-                                              Image.asset(
-                                                "Images/menu_icon/three_dot.jpg",
-                                                height: 30,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            child: Container(
-                              color: Colors.grey.withOpacity(0.5),
-                              width: double.infinity,
-                              height: 2,
-                            ),
-                          ),
-                          Container(
-                            color: Colors.grey.withOpacity(0.1),
-                            height: 80,
-                            width: double.infinity,
-                            child: Row(
-                              children: [
-                                Expanded(
-                                    flex: 3,
-                                    child: Image.asset(
-                                      "Images/menu_icon/current_account_icon.jpg",
-                                      fit: BoxFit.contain,
-                                      height: 60,
-                                      width: 70,
-                                      alignment: Alignment.center,
-                                    )
-                                ),
-                                Expanded(
-                                    flex: 9,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(height: 10,),
-                                        Text(
-                                          "Current Account | 123 456 789",
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.only(right: 10),
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "100,000.00 USD",
-                                                style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 20,
-                                                ),
-                                              ),
-                                              Image.asset(
-                                                "Images/menu_icon/three_dot.jpg",
-                                                height: 30,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            child: Container(
-                              color: Colors.grey.withOpacity(0.5),
-                              width: double.infinity,
-                              height: 2,
-                            ),
-                          ),
-                          Container(
-                            color: Colors.grey.withOpacity(0.1),
-                            height: 80,
-                            width: double.infinity,
-                            child: Row(
-                              children: [
-                                Expanded(
-                                    flex: 3,
-                                    child: Image.asset(
-                                      "Images/menu_icon/saving_account_icon.jpg",
-                                      fit: BoxFit.contain,
-                                      height: 60,
-                                      width: 70,
-                                      alignment: Alignment.center,
-                                    )
-                                ),
-                                Expanded(
-                                    flex: 9,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(height: 10,),
-                                        Text(
-                                          "Saving Account | 123 456 789",
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.only(right: 10),
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "100,000.00 KHR",
-                                                style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 20,
-                                                ),
-                                              ),
-                                              Image.asset(
-                                                "Images/menu_icon/three_dot.jpg",
-                                                height: 30,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    )
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
@@ -365,67 +181,67 @@ class _ApdAccountPageState extends State<ApdAccountPage> {
                         ],
                       ),
                     ),
-                  ],
-                ),
-                SizedBox(height: 145,),
-                SizedBox(
-                  width: double.infinity,
-                  child: Column(
-                    children: [
-                      Container(
-                        alignment: Alignment.center,
-                        child: Image.asset(
-                          "Images/menu_icon/arrow_classic.jpg",
-                          fit: BoxFit.contain,
-                          height: 35,
-                          width: 80,
-                        ),
-                      ),
-                      Stack(
+                    Container(
+                        color: Colors.grey.withOpacity(0.5),
+                        width: double.infinity,
+                        height: 2,
+                    ),
+                    Container(
+                      color: Colors.grey.withOpacity(0.1),
+                      height: 80,
+                      width: double.infinity,
+                      child: Row(
                         children: [
-                          Container(
-                            clipBehavior: Clip.hardEdge,
-                            width: double.infinity,
-                            height: 80,
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: [
-                                    Color(0xFF3891C7),
-                                    Color(0xFF3891C7),
-                                  ],
-                                ),
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    topRight: Radius.circular(20))
+                          Expanded(
+                            flex: 3,
+                            child: Image.asset(
+                              "Images/menu_icon/saving_account_icon.jpg",
+                              fit: BoxFit.contain,
+                              height: 60,
+                              width: 70,
+                              alignment: Alignment.center,
                             ),
                           ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(30, 20, 30, 10),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          Expanded(
+                            flex: 9,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                GestureDetector(
+                                const SizedBox(height: 10),
+                                InkWell(
                                   onTap: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => ApdHomePageClassic()),
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const ApdHomePageClassic()),
                                     );
                                   },
-                                  child: Image.asset(
-                                    "Images/menu_icon/home_icon.jpg",
-                                    height: 30,
-                                    width: 30,
+                                  child: const Text(
+                                    "Saving Account | 123 456 789",
+                                    style: TextStyle(color: Colors.black, fontSize: 14),
                                   ),
                                 ),
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.pop(context, MaterialPageRoute(builder: (context) => const ApdHomePageClassic()),
-                                    );
-                                  },
-                                  child: Image.asset(
-                                    "Images/menu_icon/back_icon.jpg",
-                                    height: 30,
-                                    width: 30,
+                                Container(
+                                  margin: const EdgeInsets.only(right: 10),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => const ApdHomePageClassic()),
+                                          );
+                                        },
+                                        child: const Text(
+                                          "100,000.00 USD",
+                                          style: TextStyle(color: Colors.black, fontSize: 20),
+                                        ),
+                                      ),
+                                      Image.asset(
+                                        "Images/menu_icon/three_dot.jpg",
+                                        height: 30,
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
@@ -433,13 +249,201 @@ class _ApdAccountPageState extends State<ApdAccountPage> {
                           ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                    Container(
+                      color: Colors.grey.withOpacity(0.5),
+                      width: double.infinity,
+                      height: 2,
+                    ),
+                    Container(
+                      color: Colors.grey.withOpacity(0.1),
+                      height: 80,
+                      width: double.infinity,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: Image.asset(
+                              "Images/menu_icon/current_account_icon.jpg",
+                              fit: BoxFit.contain,
+                              height: 60,
+                              width: 70,
+                              alignment: Alignment.center,
+                            ),
+                          ),
+                          Expanded(
+                            flex: 9,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(height: 10),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const ApdHomePageClassic()),
+                                    );
+                                  },
+                                  child: const Text(
+                                    "Current Account | 123 456 789",
+                                    style: TextStyle(color: Colors.black, fontSize: 14),
+                                  ),
+                                ),
+                                Container(
+                                  margin: const EdgeInsets.only(right: 10),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => const ApdHomePageClassic()),
+                                          );
+                                        },
+                                        child: const Text(
+                                          "100,000.00 USD",
+                                          style: TextStyle(color: Colors.black, fontSize: 20),
+                                        ),
+                                      ),
+                                      Image.asset(
+                                        "Images/menu_icon/three_dot.jpg",
+                                        height: 30,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      color: Colors.grey.withOpacity(0.5),
+                      width: double.infinity,
+                      height: 2,
+                    ),
+                    Container(
+                      color: Colors.grey.withOpacity(0.1),
+                      height: 80,
+                      width: double.infinity,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: Image.asset(
+                              "Images/menu_icon/saving_account_icon.jpg",
+                              fit: BoxFit.contain,
+                              height: 60,
+                              width: 70,
+                              alignment: Alignment.center,
+                            ),
+                          ),
+                          Expanded(
+                            flex: 9,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(height: 10),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const ApdHomePageClassic()),
+                                    );
+                                  },
+                                  child: const Text(
+                                    "Saving Account | 123 456 789",
+                                    style: TextStyle(color: Colors.black, fontSize: 14),
+                                  ),
+                                ),
+                                Container(
+                                  margin: const EdgeInsets.only(right: 10),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => const ApdHomePageClassic()),
+                                          );
+                                        },
+                                        child: const Text(
+                                          "100,000.00 USD",
+                                          style: TextStyle(color: Colors.black, fontSize: 20),
+                                        ),
+                                      ),
+                                      Image.asset(
+                                        "Images/menu_icon/three_dot.jpg",
+                                        height: 30,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      color: Colors.grey.withOpacity(0.5),
+                      width: double.infinity,
+                      height: 2,
+                    ),
+                  ],
                 ),
-              ]
+              ],
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: Container(
+        height: 80,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFF3891C7),
+              Color(0xFF3891C7),
+            ],
+          ),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute( builder: (context) => ApdHomePageClassic()));
+                },
+                child: Image.asset(
+                  "Images/menu_icon/home_icon.jpg",
+                  height: 30,
+                  width: 30,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context, MaterialPageRoute( builder: (context) => const ApdHomePageClassic()));
+                },
+                child: Image.asset(
+                  "Images/menu_icon/back_icon.jpg",
+                  height: 30,
+                  width: 30,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
