@@ -6,6 +6,7 @@ import 'package:my_app/apd_app_clone/fixed_deposit_page/apd_fixed_deposit_page.d
 import 'package:my_app/apd_app_clone/payments_page/apd_payment_page.dart';
 import 'package:my_app/apd_app_clone/transfer_page/apd_transfer_page.dart';
 import '../account_page/apd_account_page.dart';
+import '../apd_pop_user_setting_page.dart';
 class ApdHomePageClassic extends StatefulWidget {
   const ApdHomePageClassic({super.key});
 
@@ -612,7 +613,18 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Icon(Icons.home_filled, color: Colors.white, size: 34),
-                            Icon(Icons.menu, color: Colors.black, size: 34),
+                            GestureDetector(
+                              onTap: () {
+                                showModalBottomSheet(
+                                  context: context,
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  builder: (context) => const ApdPopUserSettingPage(),
+                                );
+                              },
+                              child: Icon(Icons.menu, color: Colors.black, size: 34),
+                            ),
+
                             Icon(Icons.qr_code_scanner_sharp, color: Colors.white, size: 34),
                             ],
                           ),
