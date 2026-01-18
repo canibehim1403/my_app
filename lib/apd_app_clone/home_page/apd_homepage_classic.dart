@@ -624,7 +624,6 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                               },
                               child: Icon(Icons.menu, color: Colors.black, size: 34),
                             ),
-
                             Icon(Icons.qr_code_scanner_sharp, color: Colors.white, size: 34),
                             ],
                           ),
