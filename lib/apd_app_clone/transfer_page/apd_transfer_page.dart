@@ -97,7 +97,6 @@ class _ApdTransferPageState extends State<ApdTransferPage> {
                       Positioned(
                         child: Column(
                           children: [
-                            // Own Account Transfer
                             InkWell(
                               onTap: () {
                                 Navigator.push(
