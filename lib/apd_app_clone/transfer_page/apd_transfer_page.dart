@@ -97,13 +97,21 @@ class _ApdTransferPageState extends State<ApdTransferPage> {
                       Positioned(
                         child: Column(
                           children: [
-                            Container(
-                              color: Colors.grey.withOpacity(0.1),
-                              height: 80,
-                              width: double.infinity,
-                              child: Row(
-                                children: [
-                                  Expanded(
+                            // Own Account Transfer
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const ApdOwnTransferPage()),
+                                );
+                              },
+                              child: Container(
+                                color: Colors.grey.withOpacity(0.1),
+                                height: 80,
+                                width: double.infinity,
+                                child: Row(
+                                  children: [
+                                    Expanded(
                                       flex: 3,
                                       child: Image.asset(
                                         "Images/menu_icon/own_transfer_icon.jpg",
@@ -111,52 +119,24 @@ class _ApdTransferPageState extends State<ApdTransferPage> {
                                         height: 35,
                                         width: 35,
                                         alignment: Alignment.center,
-                                      )
-                                  ),
-                                  Expanded(
+                                      ),
+                                    ),
+                                    Expanded(
                                       flex: 9,
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(height: 20,),
-                                          Container(
-                                            margin: EdgeInsets.only(top: 10, right: 30),
-                                            child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  "Own Account Transfer",
-                                                  style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 18,
-                                                  ),
-                                                ),
-                                                SizedBox(width: 20,),
-                                                Material(
-                                                  color: Colors.transparent,
-                                                  child: InkWell(
-                                                    borderRadius: BorderRadius.circular(45), // match icon shape
-                                                    onTap: () {
-                                                      Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(builder: (context) => const ApdOwnTransferPage()),
-                                                      );
-                                                    },
-                                                    child: Icon(
-                                                      Icons.arrow_forward_ios,
-                                                      size: 20,
-                                                      color: Colors.grey,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                  ),
-                                ],
+                                      child: Container(
+                                        margin: const EdgeInsets.only(right: 30),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: const [
+                                            Text("Own Account Transfer",
+                                                style: TextStyle(color: Colors.black, fontSize: 18)),
+                                            Icon(Icons.arrow_forward_ios, size: 20, color: Colors.grey),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -166,13 +146,20 @@ class _ApdTransferPageState extends State<ApdTransferPage> {
                                 height: 2,
                               ),
                             ),
-                            Container(
-                              color: Colors.grey.withOpacity(0.1),
-                              height: 80,
-                              width: double.infinity,
-                              child: Row(
-                                children: [
-                                  Expanded(
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const ApdOtherTransferPage()),
+                                );
+                              },
+                              child: Container(
+                                color: Colors.grey.withOpacity(0.1),
+                                height: 80,
+                                width: double.infinity,
+                                child: Row(
+                                  children: [
+                                    Expanded(
                                       flex: 3,
                                       child: Image.asset(
                                         "Images/menu_icon/other_transfer_icon.jpg",
@@ -180,52 +167,24 @@ class _ApdTransferPageState extends State<ApdTransferPage> {
                                         height: 35,
                                         width: 35,
                                         alignment: Alignment.center,
-                                      )
-                                  ),
-                                  Expanded(
+                                      ),
+                                    ),
+                                    Expanded(
                                       flex: 9,
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(height: 20,),
-                                          Container(
-                                            margin: EdgeInsets.only(top: 10, right: 30),
-                                            child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  "Other Account Transfer",
-                                                  style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 18,
-                                                  ),
-                                                ),
-                                                SizedBox(width: 20,),
-                                                Material(
-                                                  color: Colors.transparent,
-                                                  child: InkWell(
-                                                    borderRadius: BorderRadius.circular(45), // match icon shape
-                                                    onTap: () {
-                                                      Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(builder: (context) => const ApdOtherTransferPage()),
-                                                      );
-                                                    },
-                                                    child: Icon(
-                                                      Icons.arrow_forward_ios,
-                                                      size: 20,
-                                                      color: Colors.grey,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                  ),
-                                ],
+                                      child: Container(
+                                        margin: const EdgeInsets.only(right: 30),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: const [
+                                            Text("Other Account Transfer",
+                                                style: TextStyle(color: Colors.black, fontSize: 18)),
+                                            Icon(Icons.arrow_forward_ios, size: 20, color: Colors.grey),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -235,13 +194,20 @@ class _ApdTransferPageState extends State<ApdTransferPage> {
                                 height: 2,
                               ),
                             ),
-                            Container(
-                              color: Colors.grey.withOpacity(0.1),
-                              height: 80,
-                              width: double.infinity,
-                              child: Row(
-                                children: [
-                                  Expanded(
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const ApdLocalTransferPage()),
+                                );
+                              },
+                              child: Container(
+                                color: Colors.grey.withOpacity(0.1),
+                                height: 80,
+                                width: double.infinity,
+                                child: Row(
+                                  children: [
+                                    Expanded(
                                       flex: 3,
                                       child: Image.asset(
                                         "Images/menu_icon/otherbank_transfer_icon.jpg",
@@ -249,52 +215,24 @@ class _ApdTransferPageState extends State<ApdTransferPage> {
                                         height: 35,
                                         width: 35,
                                         alignment: Alignment.center,
-                                      )
-                                  ),
-                                  Expanded(
+                                      ),
+                                    ),
+                                    Expanded(
                                       flex: 9,
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(height: 20,),
-                                          Container(
-                                            margin: EdgeInsets.only(top: 10, right: 30),
-                                            child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  "Local Transfer",
-                                                  style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 18,
-                                                  ),
-                                                ),
-                                                SizedBox(width: 20,),
-                                                Material(
-                                                  color: Colors.transparent,
-                                                  child: InkWell(
-                                                    borderRadius: BorderRadius.circular(45), // match icon shape
-                                                    onTap: () {
-                                                      Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(builder: (context) => const ApdLocalTransferPage()),
-                                                      );
-                                                    },
-                                                    child: Icon(
-                                                      Icons.arrow_forward_ios,
-                                                      size: 20,
-                                                      color: Colors.grey,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                  ),
-                                ],
+                                      child: Container(
+                                        margin: const EdgeInsets.only(right: 30),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: const [
+                                            Text("Local Transfer",
+                                                style: TextStyle(color: Colors.black, fontSize: 18)),
+                                            Icon(Icons.arrow_forward_ios, size: 20, color: Colors.grey),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -304,13 +242,20 @@ class _ApdTransferPageState extends State<ApdTransferPage> {
                                 height: 2,
                               ),
                             ),
-                            Container(
-                              color: Colors.grey.withOpacity(0.1),
-                              height: 80,
-                              width: double.infinity,
-                              child: Row(
-                                children: [
-                                  Expanded(
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const ApdInternationalTransferPage()),
+                                );
+                              },
+                              child: Container(
+                                color: Colors.grey.withOpacity(0.1),
+                                height: 80,
+                                width: double.infinity,
+                                child: Row(
+                                  children: [
+                                    Expanded(
                                       flex: 3,
                                       child: Image.asset(
                                         "Images/menu_icon/ir_icon.jpg",
@@ -318,52 +263,31 @@ class _ApdTransferPageState extends State<ApdTransferPage> {
                                         height: 35,
                                         width: 35,
                                         alignment: Alignment.center,
-                                      )
-                                  ),
-                                  Expanded(
+                                      ),
+                                    ),
+                                    Expanded(
                                       flex: 9,
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(height: 20,),
-                                          Container(
-                                            margin: EdgeInsets.only(top: 10, right: 30),
-                                            child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  "International Transfer",
-                                                  style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 18,
-                                                  ),
-                                                ),
-                                                SizedBox(width: 20,),
-                                                Material(
-                                                  color: Colors.transparent,
-                                                  child: InkWell(
-                                                    borderRadius: BorderRadius.circular(45), // match icon shape
-                                                    onTap: () {
-                                                      Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(builder: (context) => const ApdInternationalTransferPage()),
-                                                      );
-                                                    },
-                                                    child: Icon(
-                                                      Icons.arrow_forward_ios,
-                                                      size: 20,
-                                                      color: Colors.grey,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                  ),
-                                ],
+                                      child: Container(
+                                        margin: const EdgeInsets.only(right: 30),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: const [
+                                            Text("International Transfer",
+                                                style: TextStyle(color: Colors.black, fontSize: 18)),
+                                            Icon(Icons.arrow_forward_ios, size: 20, color: Colors.grey),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              child: Container(
+                                color: Colors.grey.withOpacity(0.5),
+                                width: double.infinity,
+                                height: 2,
                               ),
                             ),
                           ],
