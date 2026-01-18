@@ -369,73 +369,52 @@ class _ApdLoanCalculatorPageState extends State<ApdLoanCalculatorPage> {
                 ],
               ),
             ),
-            SizedBox(height: 87,),
-            Column(
-              children: [
-                Container(
-                  alignment: Alignment.center,
-                  child: Image.asset(
-                    "Images/menu_icon/arrow_classic.jpg",
-                    fit: BoxFit.contain,
-                    height: 35,
-                    width: 80,
-                  ),
-                ),
-                Stack(
-                  children: [
-                    Container(
-                      clipBehavior: Clip.hardEdge,
-                      width: double.infinity,
-                      height: 80,
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Color(0xFF3891C7),
-                              Color(0xFF3891C7),
-                            ],
-                          ),
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20))
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(30, 20, 30, 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context, MaterialPageRoute(builder: (context) => ApdHomePageClassic()),
-                              );
-                            },
-                            child: Image.asset(
-                              "Images/menu_icon/home_icon.jpg",
-                              height: 30,
-                              width: 30,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context, MaterialPageRoute(builder: (context) => const ApdHomePageClassic()),
-                              );
-                            },
-                            child: Image.asset(
-                              "Images/menu_icon/back_icon.jpg",
-                              height: 30,
-                              width: 30,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
           ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        height: 80,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFF3891C7),
+              Color(0xFF3891C7),
+            ],
+          ),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute( builder: (context) => ApdHomePageClassic()));
+                },
+                child: Image.asset(
+                  "Images/menu_icon/home_icon.jpg",
+                  height: 30,
+                  width: 30,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context, MaterialPageRoute( builder: (context) => const ApdHomePageClassic()));
+                },
+                child: Image.asset(
+                  "Images/menu_icon/back_icon.jpg",
+                  height: 30,
+                  width: 30,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
