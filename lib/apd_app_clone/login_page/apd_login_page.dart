@@ -178,19 +178,11 @@ class _ApdLoginPageState extends State<ApdLoginPage> {
                       ),
                       onPressed: isFormComplete
                           ? () async {
-
                         final box = await Hive.openBox('userSavedBox');
-
                           box.put(AppConstants.isLogin, true);
-
                           await box.close();
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ApdHomePageClassic()),
-                        );
-                      }
-                          : null,
+                        Navigator.pushReplacement( context, MaterialPageRoute(builder: (context) => const ApdHomePageClassic()), );
+                      } : null,
                       child: const Text("Confirm", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
