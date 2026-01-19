@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:my_app/apd_app_clone/apd_edit_theme_page.dart';
+import 'package:my_app/apd_app_clone/edit_menu_page/apd_edit_menu_page.dart';
 import 'package:my_app/apd_app_clone/favorites_page/apd_favorites_page.dart';
 import 'package:my_app/apd_app_clone/fixed_deposit_page/apd_fixed_deposit_page.dart';
 import 'package:my_app/apd_app_clone/payments_page/apd_payment_page.dart';
@@ -109,14 +111,23 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.blue,
                     ),
-                    child: Text(
-                      "Edit Theme",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                    child: GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          builder: (context) => ApdEditThemePage(),
+                        );
+                      },
+                      child: Text(
+                        "Edit Theme",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                   Stack(
@@ -263,11 +274,23 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                                             height: 90,
                                             width: 90,
                                           ),
-                                          Image.asset(
-                                            "Images/menu_icon/card_icon.jpg",
-                                            fit: BoxFit.cover,
-                                            height: 33,
-                                            width: 50,
+                                          Material(
+                                            color: Colors.transparent,
+                                            child: InkWell(
+                                              borderRadius: BorderRadius.circular(45),
+                                              onTap: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(builder: (context) => ApdPaymentPage()),
+                                                );
+                                              },
+                                              child: Image.asset(
+                                                "Images/menu_icon/card_icon.jpg",
+                                                fit: BoxFit.cover,
+                                                height: 33,
+                                                width: 50,
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -331,11 +354,23 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                                             height: 90,
                                             width: 90,
                                           ),
-                                          Image.asset(
-                                            "Images/menu_icon/loan_icon.jpg",
-                                            fit: BoxFit.cover,
-                                            height: 40,
-                                            width: 50,
+                                          Material(
+                                            color: Colors.transparent,
+                                            child: InkWell(
+                                              borderRadius: BorderRadius.circular(45),
+                                              onTap: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(builder: (context) => ApdPaymentPage()),
+                                                );
+                                              },
+                                              child: Image.asset(
+                                                "Images/menu_icon/loan_icon.jpg",
+                                                fit: BoxFit.cover,
+                                                height: 40,
+                                                width: 50,
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -408,11 +443,23 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                                             height: 90,
                                             width: 90,
                                           ),
-                                          Image.asset(
-                                            "Images/menu_icon/scanqr_icon.jpg",
-                                            fit: BoxFit.cover,
-                                            height: 45,
-                                            width: 45,
+                                          Material(
+                                            color: Colors.transparent,
+                                            child: InkWell(
+                                              borderRadius: BorderRadius.circular(45),
+                                              onTap: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(builder: (context) => ApdFavoritesPage()),
+                                                );
+                                              },
+                                              child: Image.asset(
+                                                "Images/menu_icon/scanqr_icon.jpg",
+                                                fit: BoxFit.cover,
+                                                height: 45,
+                                                width: 45,
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -453,7 +500,7 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                                                 width: 45,
                                               ),
                                             ),
-                                          )
+                                          ),
                                         ],
                                       ),
                                       SizedBox(height: 10),
@@ -608,11 +655,25 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.all(20),
+                        margin: EdgeInsets.fromLTRB(30, 20, 30, 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Icon(Icons.home_filled, color: Colors.white, size: 34),
+                            GestureDetector(
+                              onTap: () {
+                                showModalBottomSheet(
+                                  context: context,
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  builder: (context) => const ApdEditMenuPage(),
+                                );
+                              },
+                              child: Image.asset(
+                                "Images/menu_icon/edit_menu_icon.jpg",
+                                height: 30,
+                                width: 30,
+                              ),
+                            ),
                             GestureDetector(
                               onTap: () {
                                 showModalBottomSheet(
@@ -624,7 +685,12 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                               },
                               child: Icon(Icons.menu, color: Colors.black, size: 34),
                             ),
-                            Icon(Icons.qr_code_scanner_sharp, color: Colors.white, size: 34),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => ApdAccountPage()), );
+                              },
+                              child: Icon(Icons.qr_code_scanner_sharp, color: Colors.white, size: 34),
+                              ),
                             ],
                           ),
                         ),
