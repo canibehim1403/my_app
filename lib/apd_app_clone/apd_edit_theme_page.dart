@@ -59,32 +59,26 @@ class _ApdEditThemePageState extends State<ApdEditThemePage> {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 30),
               children: [
-                _buildThemePreview("Classic", "Images/other/image_cat5.jpg"),
+                _buildThemePreview("CLASSIC", "Images/other/image_cat1.jpg"),
                 const SizedBox(width: 10),
-                _buildThemePreview("Chinese", "Images/other/image_cat5.jpg"),
+                _buildThemePreview("USA", "Images/other/image_cat2.jpg"),
                 const SizedBox(width: 10),
-                _buildThemePreview("Chinese", "Images/other/image_cat5.jpg"),
+                _buildThemePreview("KOREA", "Images/other/image_cat3.jpg"),
                 const SizedBox(width: 10),
-                _buildThemePreview("Chinese", "Images/other/image_cat5.jpg"),
+                _buildThemePreview("KHMER", "Images/other/image_cat4.jpg"),
               ],
             ),
           ),
-
           const SizedBox(height: 20),
-
-          // Select button
           ElevatedButton(
             onPressed: () {
               print("Selected theme: $selectedTheme");
-
               if (selectedTheme == "Chinese New Year") {
-                // Navigate to ApdHomePage (Chinese New Year UI)
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const ApdHomePage()),
                 );
               } else {
-                // Handle Classic theme logic here
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text("Classic theme applied")),
                 );
