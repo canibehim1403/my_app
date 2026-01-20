@@ -88,9 +88,11 @@ class ENExistingPage extends StatelessWidget {
                               MaterialPageRoute(builder: (context) => FirstPage()),
                             );
                           },
-                          child: const Text(
-                            "Back",
-                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          child: FittedBox(
+                            child: const Text(
+                              "Back",
+                              style: TextStyle(color: Colors.white, fontSize: 20),
+                            ),
                           ),
                         ),
                       ),
