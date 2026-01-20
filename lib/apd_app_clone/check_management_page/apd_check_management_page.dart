@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../home_page/apd_homepage_classic.dart';
+import '../transfer_page/apd_own_transfer_page.dart';
 
 class ApdCheckManagementPage extends StatelessWidget {
   const ApdCheckManagementPage({super.key});
@@ -33,15 +34,178 @@ class ApdCheckManagementPage extends StatelessWidget {
                       ),
                       SizedBox(width: 10),
                       Text("Check\nManagement", style: TextStyle(color: Colors.blue, fontSize: 30)),
-                      Container(
-                        margin: EdgeInsets.only(right: 30),
-                        child: Image.asset(
-                          "Images/menu_icon/favorites_icon.jpg",
-                          height: 50,
-                          width: 50,
-                        ),
+                      SizedBox(width: 100,),
+                      Image.asset(
+                        "Images/menu_icon/favorites_icon.jpg",
+                        height: 50,
+                        width: 50,
                       )
                     ],
+                  ),
+                  SizedBox(height: 30,),
+                  Container(
+                    margin: EdgeInsets.only(left: 20, right: 20,),
+                    clipBehavior: Clip.hardEdge,
+                    height: 100,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: Colors.cyan.withOpacity(0.7),
+                    ),
+                    child: Stack(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const ApdOwnTransferPage()),
+                            );
+                          },
+                          child: Center(
+                            child: Row(
+                              //mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: Image.asset(
+                                    "Images/menu_icon/check_inquiry_icon.jpg",
+                                    fit: BoxFit.contain,
+                                    height: 50,
+                                    width: 50,
+                                    alignment: Alignment.center,
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 9,
+                                  child: Container(
+                                    margin: const EdgeInsets.only(right: 30),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: const [
+                                        Text("Check Inquiry",
+                                            style: TextStyle(color: Colors.black, fontSize: 18)),
+                                        Icon(Icons.arrow_forward_ios, size: 20, color: Colors.grey),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  Container(
+                    margin: EdgeInsets.only(left: 20, right: 20,),
+                    clipBehavior: Clip.hardEdge,
+                    height: 100,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: Colors.cyan.withOpacity(0.7),
+                    ),
+                    child: Stack(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const ApdOwnTransferPage()),
+                            );
+                          },
+                          child: Center(
+                            child: Row(
+                              //mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: Image.asset(
+                                    "Images/menu_icon/request_check_icon.jpg",
+                                    fit: BoxFit.contain,
+                                    height: 50,
+                                    width: 50,
+                                    alignment: Alignment.center,
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 9,
+                                  child: Container(
+                                    margin: const EdgeInsets.only(right: 30),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: const [
+                                        Text("Request Check",
+                                            style: TextStyle(color: Colors.black, fontSize: 18)),
+                                        Icon(Icons.arrow_forward_ios, size: 20, color: Colors.grey),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  Container(
+                    margin: EdgeInsets.only(left: 20, right: 20,),
+                    clipBehavior: Clip.hardEdge,
+                    height: 100,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: Colors.cyan.withOpacity(0.7),
+                    ),
+                    child: Stack(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const ApdOwnTransferPage()),
+                            );
+                          },
+                          child: Center(
+                            child: Row(
+                              //mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: Image.asset(
+                                    "Images/menu_icon/stop_check_icon.jpg",
+                                    fit: BoxFit.contain,
+                                    height: 50,
+                                    width: 50,
+                                    alignment: Alignment.center,
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 9,
+                                  child: Container(
+                                    margin: const EdgeInsets.only(right: 30),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: const [
+                                        Text("Stop Check",
+                                            style: TextStyle(color: Colors.black, fontSize: 18)),
+                                        Icon(Icons.arrow_forward_ios, size: 20, color: Colors.grey),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

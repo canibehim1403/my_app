@@ -160,6 +160,9 @@ flutter:
     - Images/menu_icon/edit_menu_icon.jpg
     - Images/menu_icon/loan_calculator_logo.jpg
     - Images/menu_icon/rapid_cash_icon.jpg
+    - Images/menu_icon/check_inquiry_icon.jpg
+    - Images/menu_icon/request_check_icon.jpg
+    - Images/menu_icon/stop_check_icon.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
