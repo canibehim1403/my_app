@@ -1,14 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:my_app/apd_app_clone/apd_edit_theme_page.dart';
+import 'package:my_app/apd_app_clone/home_page/apd_edit_theme_page.dart';
 import 'package:my_app/apd_app_clone/edit_menu_page/apd_edit_menu_page.dart';
 import 'package:my_app/apd_app_clone/favorites_page/apd_favorites_page.dart';
 import 'package:my_app/apd_app_clone/fixed_deposit_page/apd_fixed_deposit_page.dart';
 import 'package:my_app/apd_app_clone/payments_page/apd_payment_page.dart';
 import 'package:my_app/apd_app_clone/transfer_page/apd_transfer_page.dart';
 import '../account_page/apd_account_page.dart';
-import '../apd_pop_user_setting_page.dart';
+import 'apd_pop_user_setting_page.dart';
 class ApdHomePageClassic extends StatefulWidget {
   const ApdHomePageClassic({super.key});
 
