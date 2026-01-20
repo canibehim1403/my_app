@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/apd_app_clone/check_management_page/apd_check_inquiry_page.dart';
+import 'package:my_app/apd_app_clone/check_management_page/apd_request_check_page.dart';
+import 'package:my_app/apd_app_clone/check_management_page/apd_stop_check_page.dart';
 
 import '../home_page/apd_homepage_classic.dart';
 import '../transfer_page/apd_own_transfer_page.dart';
@@ -58,7 +61,7 @@ class ApdCheckManagementPage extends StatelessWidget {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const ApdOwnTransferPage()),
+                              MaterialPageRoute(builder: (context) => const ApdCheckInquiryPage()),
                             );
                           },
                           child: Center(
@@ -113,7 +116,7 @@ class ApdCheckManagementPage extends StatelessWidget {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const ApdOwnTransferPage()),
+                              MaterialPageRoute(builder: (context) => const ApdRequestCheckPage()),
                             );
                           },
                           child: Center(
@@ -168,7 +171,7 @@ class ApdCheckManagementPage extends StatelessWidget {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const ApdOwnTransferPage()),
+                              MaterialPageRoute(builder: (context) => const ApdStopCheckPage()),
                             );
                           },
                           child: Center(
