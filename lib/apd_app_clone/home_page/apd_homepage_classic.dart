@@ -158,7 +158,7 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
               child: Stack(
                 children: [
                   SizedBox(
-                    height: 300,
+                    height: 280,
                     child: PageView.builder(
                       controller: _accountPageController,
                       itemCount: loopedAccounts.length,
@@ -188,7 +188,7 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 270),
+                    margin: const EdgeInsets.only(top: 260),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(_accountBanners.length, (index) {
@@ -217,7 +217,7 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            SizedBox(height: 300),
+                            SizedBox(height: 280),
                             Container(
                               margin: EdgeInsets.only(left: 10, right: 10),
                               child: Row(
@@ -231,8 +231,8 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                                           Image.asset(
                                             "Images/menu_icon/background_icon.jpg",
                                             fit: BoxFit.contain,
-                                            height: 90,
-                                            width: 90,
+                                            height: 80,
+                                            width: 80,
                                           ),
                                           Material(
                                             color: Colors.transparent,
@@ -271,8 +271,8 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                                           Image.asset(
                                             "Images/menu_icon/background_icon.jpg",
                                             fit: BoxFit.contain,
-                                            height: 90,
-                                            width: 90,
+                                            height: 80,
+                                            width: 80,
                                           ),
                                           Material(
                                             color: Colors.transparent,
@@ -311,8 +311,8 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                                           Image.asset(
                                             "Images/menu_icon/background_icon.jpg",
                                             fit: BoxFit.contain,
-                                            height: 90,
-                                            width: 90,
+                                            height: 80,
+                                            width: 80,
                                           ),
                                           Material(
                                             color: Colors.transparent,
@@ -351,8 +351,8 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                                           Image.asset(
                                             "Images/menu_icon/background_icon.jpg",
                                             fit: BoxFit.contain,
-                                            height: 90,
-                                            width: 90,
+                                            height: 80,
+                                            width: 80,
                                           ),
                                           Material(
                                             color: Colors.transparent,
@@ -400,8 +400,8 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                                           Image.asset(
                                             "Images/menu_icon/background_icon.jpg",
                                             fit: BoxFit.contain,
-                                            height: 90,
-                                            width: 90,
+                                            height: 80,
+                                            width: 80,
                                           ),
                                           Material(
                                             color: Colors.transparent,
@@ -440,8 +440,8 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                                           Image.asset(
                                             "Images/menu_icon/background_icon.jpg",
                                             fit: BoxFit.contain,
-                                            height: 90,
-                                            width: 90,
+                                            height: 80,
+                                            width: 80,
                                           ),
                                           Material(
                                             color: Colors.transparent,
@@ -480,8 +480,8 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                                           Image.asset(
                                             "Images/menu_icon/background_icon.jpg",
                                             fit: BoxFit.contain,
-                                            height: 90,
-                                            width: 90,
+                                            height: 80,
+                                            width: 80,
                                           ),
                                           Material(
                                             color: Colors.transparent,
@@ -520,8 +520,8 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                                           Image.asset(
                                             "Images/menu_icon/background_icon.jpg",
                                             fit: BoxFit.contain,
-                                            height: 90,
-                                            width: 90,
+                                            height: 80,
+                                            width: 80,
                                           ),
                                           Material(
                                             color: Colors.transparent,
@@ -560,13 +560,13 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                       ),
                     ),
                   Positioned(
-                    top: 570,
+                    top: 550,
                     left: 0,
                     right: 0,
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 120,
+                          height: 110,
                           child: PageView.builder(
                             controller: _adsPageController,
                             itemCount: loopedImages.length,
@@ -596,7 +596,7 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                             },
                           ),
                         ),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 30),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: List.generate(_adBanners.length, (index) {
@@ -747,7 +747,7 @@ Widget _accountBanner({
                   Text("Bank", style: TextStyle(color: Colors.blue, fontSize: 18)),
                 ],
               ),
-              SizedBox(height: 25),
+              SizedBox(height: 15),
               Text(name, style: const TextStyle(color: Colors.blue, fontSize: 24, letterSpacing: 4)),
               SizedBox(height: 10),
               Row(
@@ -759,7 +759,7 @@ Widget _accountBanner({
                   Text(accountType, style: TextStyle(color: Colors.blue, fontSize: 14)),
                 ],
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
