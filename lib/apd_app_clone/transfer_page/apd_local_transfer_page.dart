@@ -122,31 +122,32 @@ class _ApdLocalTransferPageState extends State<ApdLocalTransferPage> {
                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                               crossAxisAlignment: CrossAxisAlignment.center,
                                               children: [
-                                                Text(
-                                                  "Transfer to Bakong Account",
-                                                  style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 16,
+                                                InkWell(
+                                                  borderRadius: BorderRadius.circular(45), // match rounded tap area
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(builder: (context) => const ApdTransferToBakongAccountPage()),
+                                                    );
+                                                  },
+                                                  child: Row(
+                                                    children: [
+                                                      Text(
+                                                        "Transfer to Bakong Account",
+                                                        style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 16,
+                                                        ),
+                                                      ),
+                                                      SizedBox(width: 60),
+                                                      Icon(
+                                                        Icons.arrow_forward_ios,
+                                                        size: 20,
+                                                        color: Colors.grey,
+                                                      ),
+                                                    ],
                                                   ),
-                                                ),
-                                                SizedBox(width: 20,),
-                                                Material(
-                                                  color: Colors.transparent,
-                                                  child: InkWell(
-                                                    borderRadius: BorderRadius.circular(45), // match icon shape
-                                                    onTap: () {
-                                                      Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(builder: (context) => const ApdTransferToBakongAccountPage()),
-                                                      );
-                                                    },
-                                                    child: Icon(
-                                                      Icons.arrow_forward_ios,
-                                                      size: 20,
-                                                      color: Colors.grey,
-                                                    ),
-                                                  ),
-                                                ),
+                                                )
                                               ],
                                             ),
                                           ),
@@ -191,31 +192,34 @@ class _ApdLocalTransferPageState extends State<ApdLocalTransferPage> {
                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                               crossAxisAlignment: CrossAxisAlignment.center,
                                               children: [
-                                                Text(
-                                                  "Transfer to Bank Account",
-                                                  style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 16,
+                                                InkWell(
+                                                  borderRadius: BorderRadius.circular(45),
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(builder: (context) => const ApdTransferToBankAccountPage()),
+                                                    );
+                                                  },
+                                                  child: Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        "Transfer to Bank Account",
+                                                        style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 16,
+                                                        ),
+                                                      ),
+                                                      SizedBox(width: 80,),
+                                                      Icon(
+                                                        Icons.arrow_forward_ios,
+                                                        size: 20,
+                                                        color: Colors.grey,
+                                                      ),
+                                                    ],
                                                   ),
-                                                ),
-                                                SizedBox(width: 20,),
-                                                Material(
-                                                  color: Colors.transparent,
-                                                  child: InkWell(
-                                                    borderRadius: BorderRadius.circular(45),
-                                                    onTap: () {
-                                                      Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(builder: (context) => const ApdTransferToBankAccountPage()),
-                                                      );
-                                                    },
-                                                    child: Icon(
-                                                      Icons.arrow_forward_ios,
-                                                      size: 20,
-                                                      color: Colors.grey,
-                                                    ),
-                                                  ),
-                                                ),
+                                                )
+
                                               ],
                                             ),
                                           ),
