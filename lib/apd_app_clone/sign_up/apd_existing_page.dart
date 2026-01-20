@@ -72,6 +72,7 @@ class ENExistingPage extends StatelessWidget {
                   top: 150,
                   child: Image.asset(
                     "Images/apd_image/first_page_vector.jpg",
+                    fit: BoxFit.fill,
                   ),
                 ),
                 Container(
@@ -80,18 +81,21 @@ class ENExistingPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Container(
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => FirstPage()),
-                            );
-                          },
-                          child: FittedBox(
-                            child: const Text(
-                              "Back",
-                              style: TextStyle(color: Colors.white, fontSize: 20),
+                      Center(
+                        child: Container(
+                          padding: EdgeInsets.only(top: 65, bottom: 65, left: 40),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => FirstPage()),
+                              );
+                            },
+                            child: FittedBox(
+                              child: const Text(
+                                "Back",
+                                style: TextStyle(color: Colors.white, fontSize: 20),
+                              ),
                             ),
                           ),
                         ),
