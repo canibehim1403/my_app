@@ -46,7 +46,7 @@ class ApdCheckManagementPage extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(left: 20, right: 20,),
                     clipBehavior: Clip.hardEdge,
-                    height: 100,
+                    height: 90,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
@@ -101,7 +101,7 @@ class ApdCheckManagementPage extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(left: 20, right: 20,),
                     clipBehavior: Clip.hardEdge,
-                    height: 100,
+                    height: 90,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
@@ -156,7 +156,7 @@ class ApdCheckManagementPage extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(left: 20, right: 20,),
                     clipBehavior: Clip.hardEdge,
-                    height: 100,
+                    height: 90,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
