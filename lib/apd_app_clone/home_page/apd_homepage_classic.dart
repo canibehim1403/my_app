@@ -195,8 +195,8 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                         return AnimatedContainer(
                           duration: const Duration(milliseconds: 250),
                           margin: const EdgeInsets.symmetric(horizontal: 6),
-                          width: (_currentAccountPage - 1) == index ? 36 : 30,
-                          height: 3,
+                          width: (_currentAccountPage - 1) == index ? 24 : 24,
+                          height: 2,
                           decoration: BoxDecoration(
                             color: (_currentAccountPage - 1) == index
                                 ? Colors.blue
@@ -560,7 +560,7 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                       ),
                     ),
                   Positioned(
-                    top: 550,
+                    top: 530,
                     left: 0,
                     right: 0,
                     child: Column(
@@ -596,15 +596,15 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                             },
                           ),
                         ),
-                        const SizedBox(height: 30),
+                        const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: List.generate(_adBanners.length, (index) {
                             return AnimatedContainer(
                               duration: const Duration(milliseconds: 250),
-                              margin: const EdgeInsets.symmetric(horizontal: 6),
-                              width: (_currentAdsPage - 1) == index ? 36 : 30,
-                              height: 3,
+                              margin: const EdgeInsets.symmetric(horizontal: 4),
+                              width: (_currentAdsPage - 1) == index ? 24 : 24,
+                              height: 2,
                               decoration: BoxDecoration(
                                 color: (_currentAdsPage - 1) == index
                                     ? Colors.blue
