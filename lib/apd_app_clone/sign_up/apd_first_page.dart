@@ -57,7 +57,7 @@ class FirstPage extends StatelessWidget {
                         decoration: BoxDecoration(
                           image: DecorationImage(image: AssetImage('Images/apd_image/first_page_vector.jpg',), fit: BoxFit.fill)
                         ),
-                        padding: EdgeInsets.only(top: 65, bottom: 65, left: 80),
+                        padding: EdgeInsets.only(top: 65, bottom: 65, left: 200),
                         // margin: EdgeInsets.only(right: 10),
                         child: Container(
                           height: constain.maxHeight*.2,
