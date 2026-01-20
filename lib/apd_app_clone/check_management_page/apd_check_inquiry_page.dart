@@ -123,6 +123,24 @@ class _ApdCheckInquiryPageState extends State<ApdCheckInquiryPage> {
                 ),
               ),
               SizedBox(height: 10,),
+              Row(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      color: Colors.blue,
+                      height: 6,
+                    ),
+                  ),
+                  Expanded(
+                    flex: 10,
+                    child: Container(
+                      color: Colors.grey,
+                      height: 6,
+                    ),
+                  ),
+                ],
+              ),
               Expanded(
                 child: ListView.builder(
                   padding: const EdgeInsets.only(bottom: 10),
