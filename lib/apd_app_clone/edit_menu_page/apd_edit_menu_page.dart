@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/apd_app_clone/check_management_page/apd_check_management_page.dart';
 import 'package:my_app/apd_app_clone/loan_calculator_page/apd_loan_calculator_page.dart';
 
 class ApdEditMenuPage extends StatelessWidget {
@@ -144,11 +145,21 @@ class ApdEditMenuPage extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          Container(
-                            child: Image.asset(
-                              "Images/other/test_logo.jpg",
-                              height: 70,
-                              width: 70,
+                          Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(45), // match icon shape
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const ApdCheckManagementPage()),
+                                );
+                              },
+                              child: Image.asset(
+                                "Images/menu_icon/loan_calculator_logo.jpg",
+                                height: 70,
+                                width: 70,
+                              ),
                             ),
                           ),
                           SizedBox(height: 5,),
