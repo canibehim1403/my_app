@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/apd_app_clone/loan_calculator_page/apd_loan_calculator_page.dart';
 
 class ApdEditMenuPage extends StatelessWidget {
   const ApdEditMenuPage({super.key});
@@ -48,17 +49,91 @@ class ApdEditMenuPage extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          Container(
-                            child: Image.asset(
-                              "Images/other/test_logo.jpg",
-                              height: 70,
-                              width: 70,
+                          Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(45), // match icon shape
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const ApdLoanCalculatorPage()),
+                                );
+                              },
+                              child: Image.asset(
+                                "Images/other/test_logo.jpg",
+                                height: 70,
+                                width: 70,
+                              ),
                             ),
                           ),
                           SizedBox(height: 5,),
                           Center(
                             child: Text(
                               "Exchange\nRate",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(45), // match icon shape
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const ApdLoanCalculatorPage()),
+                                );
+                              },
+                              child: Image.asset(
+                                "Images/menu_icon/loan_calculator_logo.jpg",
+                                height: 70,
+                                width: 70,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 5,),
+                          Center(
+                            child: Text(
+                              "Loan\nCalculator",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(45), // match icon shape
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const ApdLoanCalculatorPage()),
+                                );
+                              },
+                              child: Image.asset(
+                                "Images/menu_icon/rapid_cash_icon.jpg",
+                                height: 70,
+                                width: 70,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 5,),
+                          Center(
+                            child: Text(
+                              "Rapid Cash\n ",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,
@@ -79,53 +154,12 @@ class ApdEditMenuPage extends StatelessWidget {
                           SizedBox(height: 5,),
                           Center(
                             child: Text(
-                              "Exchange\nRate",
+                              "Check\nManag...",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,
                               ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            child: Image.asset(
-                              "Images/other/test_logo.jpg",
-                              height: 70,
-                              width: 70,
-                            ),
-                          ),
-                          SizedBox(height: 5,),
-                          Center(
-                            child: Text(
-                              "Exchange\nRate",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            child: Image.asset(
-                              "Images/other/test_logo.jpg",
-                              height: 70,
-                              width: 70,
-                            ),
-                          ),
-                          SizedBox(height: 5,),
-                          Center(
-                            child: Text(
-                              "Exchange\nRate",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                              ),
+                              textAlign: TextAlign.center,
                             ),
                           ),
                         ],
