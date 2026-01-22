@@ -175,7 +175,7 @@ class _ApdRequestCheckPageState extends State<ApdRequestCheckPage> {
               ),
               SizedBox(height: 30,),
               SizedBox(
-                height: 100, // 🔹 Adjusted height for better spacing
+                height: 200, // 🔹 Adjusted height for better spacing
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -183,7 +183,7 @@ class _ApdRequestCheckPageState extends State<ApdRequestCheckPage> {
                   itemBuilder: (context, index) {
                     final item = checkItems[index];
                     return Container(
-                      width: 280, // 🔹 Slightly narrower for better fit
+                      width: 200, // 🔹 Slightly narrower for better fit
                       margin: const EdgeInsets.symmetric(horizontal: 8),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
@@ -198,44 +198,18 @@ class _ApdRequestCheckPageState extends State<ApdRequestCheckPage> {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: Row(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Image.asset(
-                              "Images/menu_icon/check_no_icon.jpg",
-                              height: 36,
-                            ),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Check No.",
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.blue,
-                                    ),
-                                  ),
-                                ],
+                            Text(
+                              item["name"] ?? "",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.blue,
                               ),
                             ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  "Status",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(width: 8),
-                            const Icon(Icons.keyboard_arrow_down,
-                                color: Colors.blue, size: 30),
+                            Text( item["subname"] ?? "", style: const TextStyle( fontSize: 16, color: Colors.red, ), ),
                           ],
                         ),
                       ),
