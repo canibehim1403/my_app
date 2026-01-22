@@ -12,90 +12,91 @@ class ApdPopUserSettingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Center(
-          child: Image.asset(
-            "Images/menu_icon/arrow_classic.jpg",
-            fit: BoxFit.contain,
-            height: 35,
-            width: 80,
-          ),
-        ),
-        Container(
-          height: MediaQuery.of(context).size.height * 0.5,
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [Color(0xFF37B3C9), Color(0xFF3891C7)],
-            ),
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(30),
-              topRight: Radius.circular(30),
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Center(
+            child: Image.asset(
+              "Images/menu_icon/arrow_classic.jpg",
+              fit: BoxFit.contain,
+              height: 35,
+              width: 80,
             ),
           ),
-          child: Column(
-            children: [
-              const SizedBox(height: 20),
-              InkWell(
-                onTap: () {
-                  Navigator.push( context, MaterialPageRoute(
-                      builder: (context) => ApdUserSettingPage()),
-                  );
-                  },
-                child: _menuItem(
-                  icon: "Images/menu_icon/user_setting_icon.jpg",
-                  label: "User Setting",
-                ),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.5,
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Color(0xFF37B3C9), Color(0xFF3891C7)],
               ),
-              _menuItem(icon: "Images/menu_icon/contact_us_icon.jpg", label: "Contact Us"),
-              _menuItem(icon: "Images/menu_icon/faq_icon.jpg", label: "FAQ"),
-              _menuItem(icon: "Images/menu_icon/term_condition_icon.jpg", label: "Terms & Conditions"),
-              _menuItem(icon: "Images/menu_icon/about_us_icon.jpg", label: "About Us"),
-              SizedBox(
-                width: 230,
-                height: 70,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.cyan.withOpacity(0.5),
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                  ),
-                  onPressed: () async {
-                    final box = await Hive.openBox('userSavedBox');
-                    await box.put(AppConstants.isLogin, false);
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (context) => const ApdLoginPage()),
-                          (route) => false,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+              ),
+            ),
+            child: Column(
+              children: [
+                const SizedBox(height: 20),
+                InkWell(
+                  onTap: () {
+                    Navigator.push( context, MaterialPageRoute(
+                        builder: (context) => ApdUserSettingPage()),
                     );
                   },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset("Images/menu_icon/logout_icon.jpg",
+                  child: _menuItem(
+                    icon: "Images/menu_icon/user_setting_icon.jpg",
+                    label: "User Setting",
+                  ),
+                ),
+                _menuItem(icon: "Images/menu_icon/contact_us_icon.jpg", label: "Contact Us"),
+                _menuItem(icon: "Images/menu_icon/faq_icon.jpg", label: "FAQ"),
+                _menuItem(icon: "Images/menu_icon/term_condition_icon.jpg", label: "Terms & Conditions"),
+                _menuItem(icon: "Images/menu_icon/about_us_icon.jpg", label: "About Us"),
+                SizedBox(
+                  width: 230,
+                  height: 70,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.cyan.withOpacity(0.5),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    onPressed: () async {
+                      final box = await Hive.openBox('userSavedBox');
+                      await box.put(AppConstants.isLogin, false);
+                      await box.put(AppConstants.isLanguageSelected, false);
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ApdLoginPage()),
+                            (route) => false,
+                      );
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset("Images/menu_icon/logout_icon.jpg",
                           height: 30,
                           width: 30,
                           color: Colors.white,
-                      ),
-                      const SizedBox(width: 20),
-                      const Text(
+                        ),
+                        const SizedBox(width: 20),
+                        const Text(
                           "Log out",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
+                            color: Colors.white,
+                            fontSize: 20,
                           ),
-                      ),
-                    ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 30),
-            ],
+                const SizedBox(height: 30),
+              ],
+            ),
           ),
-        ),
-      ],
-    ),
+        ],
+      ),
     );
   }
 

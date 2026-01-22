@@ -17,6 +17,7 @@ class ApdHomePageClassic extends StatefulWidget {
 }
 
 class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
+
   late PageController _accountPageController;
   late List<Map<String, String>> loopedAccounts;
   int _currentAccountPage = 1;
@@ -87,128 +88,128 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
   @override Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-         return false; 
-         },
-    child: Scaffold(
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        color: Colors.white,
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(top: 60),
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    height: 35,
-                    width: 120,
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.blue,
-                    ),
-                    child: GestureDetector(
-                      onTap: () {
-                        showModalBottomSheet(
-                          context: context,
-                          isScrollControlled: true,
-                          backgroundColor: Colors.transparent,
-                          builder: (context) => ApdEditThemePage(),
-                        );
-                      },
-                      child: Text(
-                        "Edit Theme",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+        return false;
+      },
+      child: Scaffold(
+        body: Container(
+          height: double.infinity,
+          width: double.infinity,
+          color: Colors.white,
+          child: Column(
+            children: [
+              Container(
+                margin: EdgeInsets.only(top: 60),
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      height: 35,
+                      width: 120,
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.blue,
                       ),
-                    ),
-                  ),
-                  Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Image.asset( "Images/menu_icon/chat_bubble_outline_blue.jpg",
-                        fit: BoxFit.contain,
-                        height: 35,
-                        width: 35,
-                      ),
-                      Positioned(
-                        bottom: 10,
+                      child: GestureDetector(
+                        onTap: () {
+                          showModalBottomSheet(
+                            context: context,
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            builder: (context) => ApdEditThemePage(),
+                          );
+                        },
                         child: Text(
-                          "19",
+                          "Edit Theme",
                           style: TextStyle(
-                            color: Colors.blue,
+                            color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Stack(
-                children: [
-                  SizedBox(
-                    height: 280,
-                    child: PageView.builder(
-                      controller: _accountPageController,
-                      itemCount: loopedAccounts.length,
-                      onPageChanged: (index) {
-                        setState(() {
-                          _currentAccountPage = index;
-
-                          // Infinite loop behavior
-                          if (index == 0) {
-                            _accountPageController.jumpToPage(loopedAccounts.length - 2);
-                            _currentAccountPage = loopedAccounts.length - 2;
-                          } else if (index == loopedAccounts.length - 1) {
-                            _accountPageController.jumpToPage(1);
-                            _currentAccountPage = 1;
-                          }
-                        });
-                      },
-                      itemBuilder: (context, index) {
-                        final account = loopedAccounts[index];
-                        return _accountBanner(
-                          name: account["name"]!,
-                          accountNo: account["accountNo"]!,
-                          accountType: account["accountType"]!,
-                          currency: account["currency"]!,
-                        );
-                      },
                     ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 260),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(_accountBanners.length, (index) {
-                        return AnimatedContainer(
-                          duration: const Duration(milliseconds: 250),
-                          margin: const EdgeInsets.symmetric(horizontal: 6),
-                          width: (_currentAccountPage - 1) == index ? 24 : 24,
-                          height: 2,
-                          decoration: BoxDecoration(
-                            color: (_currentAccountPage - 1) == index
-                                ? Colors.blue
-                                : Colors.grey.shade300,
-                            borderRadius: BorderRadius.circular(4),
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Image.asset( "Images/menu_icon/chat_bubble_outline_blue.jpg",
+                          fit: BoxFit.contain,
+                          height: 35,
+                          width: 35,
+                        ),
+                        Positioned(
+                          bottom: 10,
+                          child: Text(
+                            "19",
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        );
-                      }),
+                        ),
+                      ],
                     ),
-                  ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Stack(
+                  children: [
+                    SizedBox(
+                      height: 280,
+                      child: PageView.builder(
+                        controller: _accountPageController,
+                        itemCount: loopedAccounts.length,
+                        onPageChanged: (index) {
+                          setState(() {
+                            _currentAccountPage = index;
 
-                  Positioned(
+                            // Infinite loop behavior
+                            if (index == 0) {
+                              _accountPageController.jumpToPage(loopedAccounts.length - 2);
+                              _currentAccountPage = loopedAccounts.length - 2;
+                            } else if (index == loopedAccounts.length - 1) {
+                              _accountPageController.jumpToPage(1);
+                              _currentAccountPage = 1;
+                            }
+                          });
+                        },
+                        itemBuilder: (context, index) {
+                          final account = loopedAccounts[index];
+                          return _accountBanner(
+                            name: account["name"]!,
+                            accountNo: account["accountNo"]!,
+                            accountType: account["accountType"]!,
+                            currency: account["currency"]!,
+                          );
+                        },
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 260),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List.generate(_accountBanners.length, (index) {
+                          return AnimatedContainer(
+                            duration: const Duration(milliseconds: 250),
+                            margin: const EdgeInsets.symmetric(horizontal: 6),
+                            width: (_currentAccountPage - 1) == index ? 24 : 24,
+                            height: 2,
+                            decoration: BoxDecoration(
+                              color: (_currentAccountPage - 1) == index
+                                  ? Colors.blue
+                                  : Colors.grey.shade300,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                          );
+                        }),
+                      ),
+                    ),
+
+                    Positioned(
                       child: Container(
                         alignment: Alignment.centerLeft,
                         height: double.infinity,
@@ -559,137 +560,137 @@ class _ApdHomePageClassicState extends State<ApdHomePageClassic> {
                         ),
                       ),
                     ),
-                  Positioned(
-                    top: 530,
-                    left: 0,
-                    right: 0,
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 110,
-                          child: PageView.builder(
-                            controller: _adsPageController,
-                            itemCount: loopedImages.length,
-                            onPageChanged: (index) {
-                              setState(() {
-                                _currentAdsPage = index;
-                                if (index == 0) {
-                                  _adsPageController.jumpToPage(loopedImages.length - 2);
-                                  _currentAdsPage = loopedImages.length - 2;
-                                } else if (index == loopedImages.length - 1) {
-                                  _adsPageController.jumpToPage(1);
-                                  _currentAdsPage = 1;
-                                }
-                              });
-                            },
-                            itemBuilder: (context, index) {
-                              return Container(
-                                margin: const EdgeInsets.symmetric(horizontal: 15),
-                                decoration: BoxDecoration(
-                                  //borderRadius: BorderRadius.circular(16),
-                                  image: DecorationImage(
-                                    image: AssetImage(loopedImages[index]),
-                                    fit: BoxFit.cover,
+                    Positioned(
+                      top: 530,
+                      left: 0,
+                      right: 0,
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 110,
+                            child: PageView.builder(
+                              controller: _adsPageController,
+                              itemCount: loopedImages.length,
+                              onPageChanged: (index) {
+                                setState(() {
+                                  _currentAdsPage = index;
+                                  if (index == 0) {
+                                    _adsPageController.jumpToPage(loopedImages.length - 2);
+                                    _currentAdsPage = loopedImages.length - 2;
+                                  } else if (index == loopedImages.length - 1) {
+                                    _adsPageController.jumpToPage(1);
+                                    _currentAdsPage = 1;
+                                  }
+                                });
+                              },
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  margin: const EdgeInsets.symmetric(horizontal: 15),
+                                  decoration: BoxDecoration(
+                                    //borderRadius: BorderRadius.circular(16),
+                                    image: DecorationImage(
+                                      image: AssetImage(loopedImages[index]),
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
+                                );
+                              },
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: List.generate(_adBanners.length, (index) {
+                              return AnimatedContainer(
+                                duration: const Duration(milliseconds: 250),
+                                margin: const EdgeInsets.symmetric(horizontal: 4),
+                                width: (_currentAdsPage - 1) == index ? 24 : 24,
+                                height: 2,
+                                decoration: BoxDecoration(
+                                  color: (_currentAdsPage - 1) == index
+                                      ? Colors.blue
+                                      : Colors.grey.shade300,
+                                  borderRadius: BorderRadius.circular(4),
                                 ),
                               );
-                            },
+                            }),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      child: Image.asset(
+                        "Images/menu_icon/arrow_classic.jpg",
+                        fit: BoxFit.contain,
+                        height: 35,
+                        width: 80,
+                      ),
+                    ),
+                    Stack(
+                      children: [
+                        Container(
+                          clipBehavior: Clip.hardEdge,
+                          width: double.infinity,
+                          height: 80,
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Color(0xFF3891C7),
+                                  Color(0xFF3891C7),
+                                ],
+                              ),
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20))
                           ),
                         ),
-                        const SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(_adBanners.length, (index) {
-                            return AnimatedContainer(
-                              duration: const Duration(milliseconds: 250),
-                              margin: const EdgeInsets.symmetric(horizontal: 4),
-                              width: (_currentAdsPage - 1) == index ? 24 : 24,
-                              height: 2,
-                              decoration: BoxDecoration(
-                                color: (_currentAdsPage - 1) == index
-                                    ? Colors.blue
-                                    : Colors.grey.shade300,
-                                borderRadius: BorderRadius.circular(4),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(30, 20, 30, 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    builder: (context) => const ApdEditMenuPage(),
+                                  );
+                                },
+                                child: Image.asset(
+                                  "Images/menu_icon/edit_menu_icon.jpg",
+                                  height: 30,
+                                  width: 30,
+                                ),
                               ),
-                            );
-                          }),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    alignment: Alignment.center,
-                    child: Image.asset(
-                      "Images/menu_icon/arrow_classic.jpg",
-                      fit: BoxFit.contain,
-                      height: 35,
-                      width: 80,
-                    ),
-                  ),
-                  Stack(
-                    children: [
-                      Container(
-                        clipBehavior: Clip.hardEdge,
-                        width: double.infinity,
-                        height: 80,
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: [
-                                Color(0xFF3891C7),
-                                Color(0xFF3891C7),
-                              ],
-                            ),
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20))
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.fromLTRB(30, 20, 30, 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                showModalBottomSheet(
-                                  context: context,
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  builder: (context) => const ApdEditMenuPage(),
-                                );
-                              },
-                              child: Image.asset(
-                                "Images/menu_icon/edit_menu_icon.jpg",
-                                height: 30,
-                                width: 30,
+                              GestureDetector(
+                                onTap: () {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    builder: (context) => const ApdPopUserSettingPage(),
+                                  );
+                                },
+                                child: Icon(Icons.menu, color: Colors.black, size: 34),
                               ),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                showModalBottomSheet(
-                                  context: context,
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  builder: (context) => const ApdPopUserSettingPage(),
-                                );
-                              },
-                              child: Icon(Icons.menu, color: Colors.black, size: 34),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => ApdAccountPage()), );
-                              },
-                              child: Icon(Icons.qr_code_scanner_sharp, color: Colors.white, size: 34),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => ApdAccountPage()), );
+                                },
+                                child: Icon(Icons.qr_code_scanner_sharp, color: Colors.white, size: 34),
                               ),
                             ],
                           ),
